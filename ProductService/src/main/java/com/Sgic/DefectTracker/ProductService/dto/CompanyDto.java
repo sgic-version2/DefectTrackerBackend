@@ -1,22 +1,7 @@
-package com.Sgic.DefectTracker.ProductService.entities;
+package com.Sgic.DefectTracker.ProductService.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "company")
-
-public class CompanyEntity {
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false, unique = true)
+public class CompanyDto {
 	private long id;
-	
 	private String company_name;
 	private String abbreviation;
 	private Integer reg_no;
@@ -29,7 +14,6 @@ public class CompanyEntity {
 	private String license_end_date;
 	private String company_description;
 	private long privilege_id;
-	
 	public long getId() {
 		return id;
 	}
@@ -105,14 +89,11 @@ public class CompanyEntity {
 	public long getPrivilege_id() {
 		return privilege_id;
 	}
-	public void setPrivilege_id(Integer privilege_id) {
+	public void setPrivilege_id(long privilege_id) {
 		this.privilege_id = privilege_id;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-
 	
 	
 }
+
+
