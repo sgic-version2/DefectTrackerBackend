@@ -1,5 +1,5 @@
 package com.Sgic.DefectTracker.ProductService.repository;
 
-public class ProductRepository {
+public class PrivilegeRepository {
 
 }
