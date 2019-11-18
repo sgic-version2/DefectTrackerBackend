@@ -9,4 +9,5 @@ public class ProductPrivilegeEntity {
 private Long id;
 private Long privilege_id;
 private Enum status;
+
 }

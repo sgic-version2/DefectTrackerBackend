@@ -1,5 +1,11 @@
 package com.Sgic.DefectTracker.ProductService.repository;
 
-public class PrivilegeDetailsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetailsEntity;
+
+ 
+
+public interface PrivilegeDetailsRepository extends JpaRepository<PrivilegeDetailsEntity,Long>{
 
 }
