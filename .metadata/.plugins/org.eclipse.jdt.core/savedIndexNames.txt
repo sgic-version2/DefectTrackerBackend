@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+D:\Employee-service\DefectTrackerBackend\.metadata\.plugins\org.eclipse.jdt.core
-586477016.index
