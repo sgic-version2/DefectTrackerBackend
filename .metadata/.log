@@ -36,3 +36,6 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2019-11-18 14:35:47.369
 !MESSAGE locking FileBasedConfig[C:\Users\Sasikumar\.gitconfig] failed after 5 retries
+
+!ENTRY org.eclipse.ui 2 2 2019-11-18 14:38:46.070
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
