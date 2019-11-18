@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( schema="prodect_service",name= "license_type")
-public class LicenseTypeEntity {
+public class LicenseType {
 private Long id;
 private Enum type;
 public Long getId() {

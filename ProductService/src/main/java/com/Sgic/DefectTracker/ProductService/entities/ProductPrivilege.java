@@ -5,7 +5,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table( schema="prodect_service",name= "product_privilege")
-public class ProductPrivilegeEntity {
+public class ProductPrivilege {
 private Long id;
 private Long privilege_id;
 private Enum status;

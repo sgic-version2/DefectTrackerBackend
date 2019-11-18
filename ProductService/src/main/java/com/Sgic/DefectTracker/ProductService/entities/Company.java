@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @EntityScan
 @Table( schema="prodect_service",name= "company")
-public class CompanyEntity {
+public class Company {
 	@Id
 	private Long id;
 	private String company_name;
