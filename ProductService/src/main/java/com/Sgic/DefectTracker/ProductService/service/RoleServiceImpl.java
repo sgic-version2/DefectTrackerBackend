@@ -11,10 +11,15 @@ public class RoleServiceImpl implements RoleService {
 
 	@Autowired
 	private RoleRepository roleRepository;
-	public Role createRole(Role role) {
+	public Role  createRole(Role role) {
 		Role responseRole = roleRepository.save(role);
 		// TODO Auto-generated method stub
 		return responseRole;
+	}
+	@Override
+	public boolean isEmailAlreadyExist(String role_name) {
+		return roleRepository.existsByEmail(role_name);
+	
 	}
 
 }
