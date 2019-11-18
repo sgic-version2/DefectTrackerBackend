@@ -1,5 +1,10 @@
 package com.Sgic.DefectTracker.ProductService.service;
 
-public class PrivilegeService {
+import com.Sgic.DefectTracker.ProductService.entities.Privilege;
+
+public interface PrivilegeService {
+	
+	public Privilege createPrivilege(Privilege privlege);
+	public boolean isEmailAlreadyExist(String email);
 
 }
