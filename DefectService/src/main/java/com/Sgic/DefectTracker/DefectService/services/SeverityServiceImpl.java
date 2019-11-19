@@ -12,15 +12,14 @@ import com.Sgic.DefectTracker.DefectService.services.SeverityService;
 import com.Sgic.DefectTracker.DefectService.entities.Severity;
 import com.Sgic.DefectTracker.DefectService.repositories.SeverityRepository;
 
-
 @Service
 public class SeverityServiceImpl implements SeverityService {
 	@Autowired
 	SeverityRepository severityRepository;
 
-	public Severity createSeverity(@RequestBody Severity severity) {
+	public Severity createSeverity(Severity severity) {
 		return severityRepository.save(severity);
-//		return new ResponseEntity<Object>(HttpStatus.OK);
+
 	}
 
 	public List<Severity> getSeverity() {
@@ -28,23 +27,13 @@ public class SeverityServiceImpl implements SeverityService {
 
 	}
 
-	public void deleteSeverity(@PathVariable Long id) {
+	public void deleteSeverity(Long id) {
 		severityRepository.deleteById(id);
-//		return ResponseEntity.ok().build();
+
 	}
 
-	public Optional<Severity> getSeverityById(@PathVariable(name = "serverityId") Long id) {
-
-//		return new ResponseEntity<Severity>(HttpStatus.OK);
-
+	public Optional<Severity> getSeverityById(Long id){
 		return severityRepository.findById(id);
 	}
-
-	
-
-	
-
-	
-
 
 }

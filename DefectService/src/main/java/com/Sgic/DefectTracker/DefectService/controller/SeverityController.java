@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.Sgic.DefectTracker.DefectService.dto.Severitydto;
+import com.Sgic.DefectTracker.DefectService.dto.mapper.Mapper;
 import com.Sgic.DefectTracker.DefectService.entities.Severity;
 
 import com.Sgic.DefectTracker.DefectService.services.SeverityService;
@@ -35,12 +36,26 @@ public class SeverityController {
 
 	@Autowired
 	SeverityService severityService;
+	@Autowired
+	Mapper mapper;
 	
-	
+//	@PostMapping(value = "/severity")
+//	public ResponseEntity<?> createSeverity(@RequestBody Severity severity) {
+//		severityService.createSeverity(severity);
+//		return new ResponseEntity<Object>(HttpStatus.OK);
+//	}
 	@PostMapping(value = "/severity")
-	public ResponseEntity<?> createSeverity(@RequestBody Severity severity) {
+	public ResponseEntity<Object> createSeverity(@RequestBody Severitydto severitydto) {
+//		if (employeeService.isEmailAlreadyExist(employeeData.getEmail())) {
+//		      logger.debug("Email already exists: createEmployee(), email: {}");
+//		      return new ResponseEntity<>(new BasicResponse<>(
+//		          new ValidationFailure(Constants.EMAIL, errorMessages.getEmailAlreadyExist()),
+//		          RestApiResponseStatus.VALIDATION_FAILURE,ValidationMessages.EMAIL_EXIST), HttpStatus.BAD_REQUEST);
+//		}
+		Severity severity = mapper.map(severitydto, Severity.class);
 		severityService.createSeverity(severity);
-		return new ResponseEntity<Object>(HttpStatus.OK);
+		return new ResponseEntity<>( HttpStatus.OK);
+		
 	}
 	
 	
