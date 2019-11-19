@@ -1,10 +1,18 @@
 package com.Sgic.DefectTracker.DefectService.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.DefectService.entities.Project;
@@ -12,44 +20,45 @@ import com.Sgic.DefectTracker.DefectService.repositories.ProjectRepository;
 import com.Sgic.DefectTracker.DefectService.services.ProjectServices;
 
 @RestController
+@RequestMapping("api/v1")
 public class ProjectController {
 
 	@Autowired
-	
 	private ProjectServices projectServices;
 	
-//	@PostMapping("")
-//	
-//	public ResponseEntity<String> save(@RequestBody Project project){
-//		projectServices.save(project);
-//		return new ResponseEntity<String>("",HttpStatus.OK);
-//                                                                }
 	
+	
+	@PostMapping(value="/project")
+	public ResponseEntity<?>createNote(@RequestBody Project project)
+	{
+	projectServices.saveProject(project);
+	    return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+	
+	
+	
+	@GetMapping("/project")
+	public List<Project> ListProject()
+	{
+	return projectServices.getAllProject();
+	}
 
-//	@GetMapping("")
-//	public List<Module> getModule() {
-//		return moduleServices.findAll();
+	@PutMapping("/project/{id}")
+	public ResponseEntity<Object> updateProject(@RequestBody Project project, @PathVariable long id) {
 
-//	}
+		Optional<Project> projectOptional = projectServices.findByID(id);
 
-//	@PutMapping("/employee/{id}")
-//	public ResponseEntity<Object> updateEmployee(@RequestBody Module module, @PathVariable long module_id) {
-//
-//		Optional<Module> moduleOptional = moduleServices.findById(module_id);
-//
-//		if (!moduleOptional.isPresent())
-//			return ResponseEntity.notFound().build();
-//
-//		module.setId(module_id);
-//
-//		moduleServices.save(module);
-//
-//		return ResponseEntity.noContent().build();
-//	}
-//	@DeleteMapping("")
-//	public void deleteEmployee(@PathVariable long module_id) {
-//		moduleServices.delete(module_id);
-//	}
-//	
+		if (!projectOptional.isPresent())
+			return ResponseEntity.notFound().build();
 
+		project.setProject_id(id);
+
+		projectServices.saveProject(project);
+
+		return ResponseEntity.noContent().build();
+	}
+	@DeleteMapping("/project/{id}")
+	public void deleteModule(@PathVariable long id) {
+		projectServices.deleteProject(id);
+	}
 }

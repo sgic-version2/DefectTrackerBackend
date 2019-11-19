@@ -1,15 +1,19 @@
 package com.Sgic.DefectTracker.DefectService.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="", name="project")
+@Table(schema="", name="")
 public class Project implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -17,6 +21,15 @@ public class Project implements Serializable{
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
+	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+	private Set<Module> module;
+	
+	public Set<Module> getModule() {
+		return module;
+	}
+	public void setModule(Set<Module> module) {
+		this.module = module;
+	}
 	private long project_id;
 	private  String project_name;
 	private  String start_date;

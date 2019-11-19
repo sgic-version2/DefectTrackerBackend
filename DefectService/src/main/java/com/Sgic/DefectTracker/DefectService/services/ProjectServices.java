@@ -1,14 +1,20 @@
 package com.Sgic.DefectTracker.DefectService.services;
 
-import java.awt.List;
+import java.util.List;
+import java.util.Optional;
 
-import com.Sgic.DefectTracker.DefectService.entities.Module;
 import com.Sgic.DefectTracker.DefectService.entities.Project;
 
 public interface ProjectServices {
 
-	public Project createEmployee(Project project);
-	
-	
+	Project saveProject(Project project);
+
+	Project updateProject(Project project, long id);
+
+	void deleteProject(long id);
+
+	List<Project> getAllProject();
+
+	Optional<Project> findByID(long id);
 
 }

@@ -12,15 +12,7 @@ import com.Sgic.DefectTracker.DefectService.repositories.ModuleRepository;
 @Service
 public class ModuleServiceImplements  implements ModuleServices{
 
-	
-	@Autowired
-	ModuleRepository moduleRepository;
 
-	@Override
-	public Project createEmployee(Project project) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 
 }

@@ -6,5 +6,5 @@ import com.Sgic.DefectTracker.DefectService.entities.Module;
 import com.Sgic.DefectTracker.DefectService.entities.Project;
 
 public interface ModuleServices {
-	public Project  createEmployee(Project project);
+	
 }
