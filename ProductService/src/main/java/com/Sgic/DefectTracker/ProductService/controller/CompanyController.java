@@ -20,7 +20,7 @@ import com.Sgic.DefectTracker.ProductService.entities.CompanyEntity;
 import com.Sgic.DefectTracker.ProductService.repository.CompanyRepository;
 import com.Sgic.DefectTracker.ProductService.service.CompanyService;
 
-@Repository
+@RestController
 	@RequestMapping("/api/v1")
 
 	public class CompanyController {
