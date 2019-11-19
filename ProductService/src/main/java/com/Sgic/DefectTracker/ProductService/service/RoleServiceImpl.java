@@ -1,33 +1,52 @@
 package com.Sgic.DefectTracker.ProductService.service;
 
-import java.util.List;
-
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.Sgic.DefectTracker.ProductService.entities.Role;
 import com.Sgic.DefectTracker.ProductService.repository.RoleRepository;
 @Service
-
 public class RoleServiceImpl implements RoleService {
 
 	@Autowired
 	private RoleRepository roleRepository;
-	public Role  createRole(Role role) {
-		Role responseRole = roleRepository.save(role);
-		// TODO Auto-generated method stub
-		return responseRole;
-	}
+	 @Transactional(readOnly = false)
+	 public Role createRole(@RequestBody Role role) {
+		 return roleRepository.save(role);
+		 // return new ResponseEntity<Object>(HttpStatus.OK);
+		 }
+//
+//		 public List<Severity> getSeverity() {
+//		 return severityRepository.findAll();
+//
+//		 }
+//
+//		 public void deleteSeverity(@PathVariable Long id) {
+//		 severityRepository.deleteById(id);
+//		 // return ResponseEntity.ok().build();
+//		 }
+//
+//		 public Optional<Severity> getSeverityById(@PathVariable(name = "serverityId") Long id) {
+//
+//		 // return new ResponseEntity<Severity>(HttpStatus.OK);
+//
+//		 return severityRepository.findById(id);
+//		 }
 
-	public boolean isEmailAlreadyExist(String role_name) {
-		return roleRepository.existsByEmail(role_name);
+
 	
-	}
-	public List<Role> findAll() {
-		// TODO Auto-generated method stub
-		return roleRepository.findAll();
-	}
+//	 @Transactional(readOnly = false)
+//	public boolean isRoleNameAlreadyExist(String role_name) {
+//		
+//		return roleRepository.isRoleNameAlreadyExist(role_name);
+//	}
 
+//	    @Transactional(readOnly = true)
+//		public boolean isRoleNameAlreadyExist(String role_name) {
+//			
+//		}
+//		
+		
 }
