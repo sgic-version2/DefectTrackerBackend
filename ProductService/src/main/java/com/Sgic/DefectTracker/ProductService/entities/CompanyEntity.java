@@ -13,8 +13,8 @@ import javax.persistence.Table;
 public class CompanyEntity {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "id", nullable = false, unique = true)
 	private long id;
 	
 	private String company_name;
