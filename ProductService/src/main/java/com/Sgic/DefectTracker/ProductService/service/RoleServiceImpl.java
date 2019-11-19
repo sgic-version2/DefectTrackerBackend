@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.Sgic.DefectTracker.ProductService.entities.Role;
 import com.Sgic.DefectTracker.ProductService.repository.RoleRepository;
 @Service
-
 public class RoleServiceImpl implements RoleService {
 
 	@Autowired
@@ -49,4 +48,5 @@ public class RoleServiceImpl implements RoleService {
 //			
 //		}
 //		
+
 }
