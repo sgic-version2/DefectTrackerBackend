@@ -1,5 +1,14 @@
 package com.Sgic.DefectTracker.DefectService.dto.mapper;
 
-public class Mapper {
 
-}
+
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Mapper {	
+
+	
+
+		  
+		}
