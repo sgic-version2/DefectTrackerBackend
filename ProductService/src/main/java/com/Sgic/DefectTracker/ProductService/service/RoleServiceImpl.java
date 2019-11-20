@@ -24,8 +24,8 @@ public class RoleServiceImpl implements RoleService {
 
 	
 
-		 public void deleteSeverity(@PathVariable Long id) {
-		 roleRepository.deleteById(id);
+		 public void deleteSeverity(@PathVariable Long Rid) {
+		 roleRepository.deleteById(Rid);
 		 // return ResponseEntity.ok().build();
 		 }
 
@@ -43,15 +43,15 @@ public class RoleServiceImpl implements RoleService {
 		}
 
 		@Override
-		public Optional<Role> findByID(Long id) {
+		public Optional<Role> findByID(Long Rid) {
 			// TODO Auto-generated method stub
-			return roleRepository.findById(id);
+			return roleRepository.findById(Rid);
 		}
 
 		@Override
-		public void deleteRole(long id) {
+		public void deleteRole(long Rid) {
 			// TODO Auto-generated method stub
-			 roleRepository.deleteById(id);
+			 roleRepository.deleteById(Rid);
 		}
 
 

@@ -44,25 +44,25 @@ public class RoleController
 		return roleService.getAllRole();
 	}
 	
-	@GetMapping("/role/{id}")
-	public Optional<Role> getRoleById(@PathVariable("id") Long id){
-		return roleService.findByID(id);
+	@GetMapping("/role/{Rid}")
+	public Optional<Role> getRoleById(@PathVariable("Rid") Long Rid){
+		return roleService.findByID(Rid);
 //	return new ResponseEntity<CompanyEntity>(HttpStatus.OK);
 	}
 	
-	@PutMapping("/role/{id}")
-	public ResponseEntity<Object> updateRole(@RequestBody Role role, @PathVariable long id) {
-		Optional<Role> roleOptional = roleService.findByID(id);
+	@PutMapping("/role/{Rid}")
+	public ResponseEntity<Object> updateRole(@RequestBody Role role, @PathVariable long Rid) {
+		Optional<Role> roleOptional = roleService.findByID(Rid);
 					if (!roleOptional.isPresent())
 						return ResponseEntity.notFound().build();
-					role.setId(id);
+					role.setRid(Rid);
 					roleService.createRole(role);
 					return ResponseEntity.noContent().build();
 	}
 	
-	@DeleteMapping("/role/{id}")
-	public ResponseEntity<Role> deleteRole(@PathVariable long id) {
-		roleService.deleteRole(id);
+	@DeleteMapping("/role/{Rid}")
+	public ResponseEntity<Role> deleteRole(@PathVariable long Rid) {
+		roleService.deleteRole(Rid);
 		return new ResponseEntity<Role>(HttpStatus.NO_CONTENT);
 	}
 	
