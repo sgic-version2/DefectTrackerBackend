@@ -1,0 +1,81 @@
+package com.Sgic.DefectTracker.DefectService.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
+import com.Sgic.DefectTracker.DefectService.dto.Severitydto;
+import com.Sgic.DefectTracker.DefectService.dto.mapper.Mapper;
+import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
+import com.Sgic.DefectTracker.DefectService.entities.Severity;
+import com.Sgic.DefectTracker.DefectService.services.DefectService;
+import com.Sgic.DefectTracker.DefectService.services.SeverityService;
+
+
+@RestController
+
+@RequestMapping("/api/v1")
+public class DefectController {
+
+	@Autowired
+	DefectService defectService;
+	
+
+	@PostMapping(value = "/defect")
+	public ResponseEntity<?> createDefectEntity(@RequestBody DefectEntity defect) {
+		defectService.createDefectEntity(defect);
+		return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+
+	@GetMapping("/defect")
+	public ResponseEntity<List<DefectEntity>> getDefectEntity() {
+		return new ResponseEntity<List<DefectEntity>>(defectService.getDefectEntity(), HttpStatus.OK);
+	}
+
+
+
+	@GetMapping("/getdefectById/{id}")
+	public ResponseEntity<Severity> getSeverityById(@PathVariable(value = "id") Long id)
+			throws ResourceNotFoundException {
+		Severity severity = severityService.getSeverityById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Severity not found for this id :: " + id));
+		return ResponseEntity.ok().body(severity);
+	}
+
+
+
+
+
+
+	@DeleteMapping("/defect/{id}")
+	public ResponseEntity<?> deleteSeverity(@PathVariable Long id) {
+		severityService.deleteSeverity(id);
+		return new ResponseEntity<String>("severity successfully deleted", HttpStatus.OK);
+	}
+	@PutMapping("/updatedefect/{id}")
+	public ResponseEntity<Object> editSeverity(@RequestBody Severity severity, @PathVariable("id") Long id) {
+
+		Optional<Severity> SeverityOptional = severityService.getSeverityById(id);
+
+		if (!SeverityOptional.isPresent())
+			return new ResponseEntity<>("Severity not found for this id", HttpStatus.NOT_FOUND);
+
+		severity.setServerityId(id);
+
+		severityService.createSeverity(severity);
+
+		return new ResponseEntity<>("Severity successfully updated", HttpStatus.OK);
+	}
+	
