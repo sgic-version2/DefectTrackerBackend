@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="employee-service", name="designation")
+@Table(name="designation")
 public class Designation implements Serializable {
 	
 	
@@ -17,14 +17,22 @@ public class Designation implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long designationId;
+	private long designationId;
 	private String designationName;
-	
+	public long getDesignationId() {
+		return designationId;
+	}
+	public void setDesignationId(long designationId) {
+		this.designationId = designationId;
+	}
 	public String getDesignationName() {
 		return designationName;
 	}
 	public void setDesignationName(String designationName) {
 		this.designationName = designationName;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 
