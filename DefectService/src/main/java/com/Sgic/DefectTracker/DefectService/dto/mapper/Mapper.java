@@ -1,7 +1,5 @@
 package com.Sgic.DefectTracker.DefectService.dto.mapper;
 
-<<<<<<< HEAD
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,17 +41,3 @@ public class Mapper {
     return mapper;
   }
 }
-=======
-
-
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class Mapper {	
-
-	
-
-		  
-		}
->>>>>>> origin/saseekalaraj
