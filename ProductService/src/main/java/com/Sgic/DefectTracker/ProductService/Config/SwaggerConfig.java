@@ -1,4 +1,4 @@
-package com.Sgic.DefectTracker.ProductService.config;
+package com.Sgic.DefectTracker.ProductService.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
