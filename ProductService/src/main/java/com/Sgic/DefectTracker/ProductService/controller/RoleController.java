@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.ProductService.dto.RoleDto;
@@ -26,6 +27,7 @@ import com.Sgic.DefectTracker.ProductService.service.RoleService;
 
 
 @RestController
+@RequestMapping("/api/v1")
 public class RoleController
 {
 	@Autowired
@@ -34,7 +36,7 @@ public class RoleController
 	private Mapper mapper;
 	
 	@PostMapping(value = "/role")
-	public ResponseEntity<Object> createSeverity(@RequestBody RoleDto roleDto) {
+	public ResponseEntity<Object> createRole(@RequestBody RoleDto roleDto) {
 	Role role = mapper.map(roleDto, Role.class);
 	roleService.createRole(role);
 	return new ResponseEntity<>( HttpStatus.OK);

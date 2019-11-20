@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
 import com.Sgic.DefectTracker.ProductService.repository.LicenseTypeRepository;
 import com.Sgic.DefectTracker.ProductService.service.LicenseTypeService;
 import com.Sgic.DefectTracker.ProductService.service.LicenseTypeServiceImpl;
@@ -30,12 +30,12 @@ public class LicenseTypeController {
 	 LicenseTypeService  licenseTypeService;
 
 	@PostMapping(value = "/licenseType")
-	public ResponseEntity<?> createNote(@RequestBody LicenseTypeEntity licenseType) {
+	public ResponseEntity<?> createNote(@RequestBody LicenseType licenseType) {
 		licenseTypeService.createNote(licenseType);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	@GetMapping("/licenseType")
-	  public List<LicenseTypeEntity> getLicenseType() {
+	  public List<LicenseType> getLicenseType() {
 		return licenseTypeService.getLicenseType();
 
 	}
@@ -46,14 +46,14 @@ public class LicenseTypeController {
 		return ResponseEntity.ok().build();
     }
 	@GetMapping("/getlicenseTypeById/{id}")
-	public Optional<LicenseTypeEntity>  getlicenseTypeById(@PathVariable("id") Long id){
+	public Optional<LicenseType>  getlicenseTypeById(@PathVariable("id") Long id){
 		return(licenseTypeService.getlicenseTypeById(id));
 	}
 	
 	@PutMapping("/updatelicenseType/{id}")
-	public ResponseEntity<Object> updateLicenseTypeEntity(@RequestBody LicenseTypeEntity licenseType, @PathVariable long id) {
+	public ResponseEntity<Object> updateLicenseTypeEntity(@RequestBody LicenseType licenseType, @PathVariable long id) {
 
-		Optional<LicenseTypeEntity> licenseTypeOptional = licenseTypeService.getlicenseTypeById(id);
+		Optional<LicenseType> licenseTypeOptional = licenseTypeService.getlicenseTypeById(id);
 
 		if (!licenseTypeOptional.isPresent())
 			return ResponseEntity.notFound().build();

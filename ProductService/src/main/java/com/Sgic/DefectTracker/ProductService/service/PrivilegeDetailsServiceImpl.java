@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
-import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetailsEntity;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
+import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetails;
 import com.Sgic.DefectTracker.ProductService.repository.LicenseTypeRepository;
 import com.Sgic.DefectTracker.ProductService.repository.PrivilegeDetailsRepository;
 
@@ -16,12 +16,12 @@ public class PrivilegeDetailsServiceImpl implements PrivilegeDetailsService{
 	@Autowired
 	PrivilegeDetailsRepository privilegeDetailsRepository;
 
-	public PrivilegeDetailsEntity createNote(PrivilegeDetailsEntity privilegeDetails) {
+	public PrivilegeDetails createNote(PrivilegeDetails privilegeDetails) {
 		return privilegeDetailsRepository.save(privilegeDetails);
 
 	}
 
-	public List<PrivilegeDetailsEntity> getPrivilegeDetails() {
+	public List<PrivilegeDetails> getPrivilegeDetails() {
 		return privilegeDetailsRepository.findAll();
 
 	}
@@ -31,7 +31,7 @@ public class PrivilegeDetailsServiceImpl implements PrivilegeDetailsService{
 
 	}
 
-	public Optional<PrivilegeDetailsEntity> getprivilegeDetailsById(Long id) {
+	public Optional<PrivilegeDetails> getprivilegeDetailsById(Long id) {
 		return (privilegeDetailsRepository.findById(id));
 	}
 }

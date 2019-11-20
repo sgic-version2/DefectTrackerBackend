@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="license_type")
-public class LicenseTypeEntity {
+public class LicenseType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long lid;

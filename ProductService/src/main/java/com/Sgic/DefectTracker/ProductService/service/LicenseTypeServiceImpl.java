@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
 import com.Sgic.DefectTracker.ProductService.repository.LicenseTypeRepository;
 @Service
 public class LicenseTypeServiceImpl implements LicenseTypeService
@@ -15,12 +15,12 @@ public class LicenseTypeServiceImpl implements LicenseTypeService
 	LicenseTypeRepository licenseTypeRepository;
 
 	 
-	public LicenseTypeEntity createNote( LicenseTypeEntity licenseType) {
+	public LicenseType createNote( LicenseType licenseType) {
 		return licenseTypeRepository.save(licenseType);
 		 
 	}
 	 
-	  public List<LicenseTypeEntity> getLicenseType() {
+	  public List<LicenseType> getLicenseType() {
 		return licenseTypeRepository.findAll();
 
 	}
@@ -31,7 +31,7 @@ public class LicenseTypeServiceImpl implements LicenseTypeService
 		 
     }
 	 
-	public Optional<LicenseTypeEntity>  getlicenseTypeById( Long id){
+	public Optional<LicenseType>  getlicenseTypeById( Long id){
 		return(licenseTypeRepository.findById(id));
 	}
 	

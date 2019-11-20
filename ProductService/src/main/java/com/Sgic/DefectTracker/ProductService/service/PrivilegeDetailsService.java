@@ -5,15 +5,15 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
-import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetailsEntity;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
+import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetails;
 @Service
 public interface PrivilegeDetailsService {
-	public PrivilegeDetailsEntity createNote(PrivilegeDetailsEntity privilegeDetails);
+	public PrivilegeDetails createNote(PrivilegeDetails privilegeDetails);
 
-	public List<PrivilegeDetailsEntity> getPrivilegeDetails();
+	public List<PrivilegeDetails> getPrivilegeDetails();
 
 	public void delete(Long id);
 
-	public Optional<PrivilegeDetailsEntity> getprivilegeDetailsById(Long id);
+	public Optional<PrivilegeDetails> getprivilegeDetailsById(Long id);
 }

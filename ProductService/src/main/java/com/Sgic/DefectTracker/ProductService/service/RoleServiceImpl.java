@@ -24,7 +24,7 @@ public class RoleServiceImpl implements RoleService {
 
 	
 
-		 public void deleteSeverity(@PathVariable Long Rid) {
+		 public void deleteRole(@PathVariable Long Rid) {
 		 roleRepository.deleteById(Rid);
 		 // return ResponseEntity.ok().build();
 		 }

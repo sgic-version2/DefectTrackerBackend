@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="privilegeDetails")
-public class PrivilegeDetailsEntity {
+public class PrivilegeDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long PDid;

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
-import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetailsEntity;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
+import com.Sgic.DefectTracker.ProductService.entities.PrivilegeDetails;
 import com.Sgic.DefectTracker.ProductService.service.LicenseTypeService;
 import com.Sgic.DefectTracker.ProductService.service.PrivilegeDetailsService;
 
@@ -28,12 +28,12 @@ public class PrivilegeDetailsController {
 	 PrivilegeDetailsService  privilegeDetailsService;
 
 	@PostMapping(value = "/privilegeDetails")
-	public ResponseEntity<?> createNote(@RequestBody PrivilegeDetailsEntity privilegeDetails) {
+	public ResponseEntity<?> createNote(@RequestBody PrivilegeDetails privilegeDetails) {
 		privilegeDetailsService.createNote(privilegeDetails);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	@GetMapping("/privilegeDetails")
-	  public List<PrivilegeDetailsEntity> getPrivilegeDetails() {
+	  public List<PrivilegeDetails> getPrivilegeDetails() {
 		return privilegeDetailsService.getPrivilegeDetails();
 
 	}
@@ -44,14 +44,14 @@ public class PrivilegeDetailsController {
 		return ResponseEntity.ok().build();
    }
 	@GetMapping("/getprivilegeDetailsById/{id}")
-	public Optional<PrivilegeDetailsEntity>  getprivilegeDetailsById(@PathVariable("id") Long id){
+	public Optional<PrivilegeDetails>  getprivilegeDetailsById(@PathVariable("id") Long id){
 		return(privilegeDetailsService.getprivilegeDetailsById(id));
 	}
 	
 	@PutMapping("/updateprivilegeDetails/{id}")
-	public ResponseEntity<Object> updatePrivilegeDetailsEntity(@RequestBody PrivilegeDetailsEntity privilegeDetails, @PathVariable long id) {
+	public ResponseEntity<Object> updatePrivilegeDetailsEntity(@RequestBody PrivilegeDetails privilegeDetails, @PathVariable long id) {
 
-		Optional<PrivilegeDetailsEntity> privilegeDetailsOptional = privilegeDetailsService.getprivilegeDetailsById(id);
+		Optional<PrivilegeDetails> privilegeDetailsOptional = privilegeDetailsService.getprivilegeDetailsById(id);
 
 		if (!privilegeDetailsOptional.isPresent())
 			return ResponseEntity.notFound().build();

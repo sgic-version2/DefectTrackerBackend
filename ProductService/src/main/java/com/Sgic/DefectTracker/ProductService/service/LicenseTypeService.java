@@ -5,14 +5,14 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
 @Service
 public interface LicenseTypeService {
-	public LicenseTypeEntity createNote(LicenseTypeEntity licenseType);
+	public LicenseType createNote(LicenseType licenseType);
 
-	public List<LicenseTypeEntity> getLicenseType();
+	public List<LicenseType> getLicenseType();
 
 	public void delete(Long id);
 
-	public Optional<LicenseTypeEntity> getlicenseTypeById(Long id);
+	public Optional<LicenseType> getlicenseTypeById(Long id);
 }
