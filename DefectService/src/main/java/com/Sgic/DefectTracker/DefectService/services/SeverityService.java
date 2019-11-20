@@ -19,4 +19,5 @@ public interface SeverityService {
 
 	// Method for Getting One Severity Record by Id
 	public void deleteSeverity(Long id);
+
 }
