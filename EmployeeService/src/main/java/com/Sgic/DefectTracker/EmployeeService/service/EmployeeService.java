@@ -12,12 +12,14 @@ import com.Sgic.DefectTracker.EmployeeService.entities.EmployeeEntity;
 
 public interface EmployeeService {
 
+	
+	//method for save employee
 	EmployeeEntity createNote(@RequestBody EmployeeEntity employeeEntity);
-	
+	//method for  get employee List
 	List<EmployeeEntity>getEmployee();
-	
+	//method for Delete one employee record by Id
 	 void deleteemployee(@PathVariable Long id);
-	 
+	//method for getting one employee record by Id
 	 Optional<EmployeeEntity> getEmployeeById(@PathVariable("id") Long id);
 	
 }

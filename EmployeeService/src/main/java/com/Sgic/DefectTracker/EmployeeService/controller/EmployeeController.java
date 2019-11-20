@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Sgic.DefectTracker.EmployeeService.dto.EmployeeDto;
+import com.Sgic.DefectTracker.EmployeeService.dto.mapper.EmployeeMapper;
 import com.Sgic.DefectTracker.EmployeeService.entities.EmployeeEntity;
 import com.Sgic.DefectTracker.EmployeeService.service.EmployeeService;
 
@@ -28,14 +29,41 @@ public class EmployeeController {
 
 	@Autowired
 EmployeeService employeeService;
+	@Autowired
+	private EmployeeMapper mapper;
+//	@PostMapping("/employee")
+//	public ResponseEntity<?> createNote(@RequestBody EmployeeEntity employeeEntity)
+//	{
+//		employeeService.createNote(employeeEntity);
+//		
+//		return new ResponseEntity<Object>(HttpStatus.OK);
+//	}
 	
-	@PostMapping("/employee")
-	public ResponseEntity<?> createNote(@RequestBody EmployeeEntity employeeEntity)
-	{
+	
+	@PostMapping(value = "/employee")
+	public ResponseEntity<Object> createEmployee(@RequestBody EmployeeDto employeeData) {
+//		if (employeeService.isEmailAlreadyExist(employeeData.getEmail())) {
+//		      logger.debug("Email already exists: createEmployee(), email: {}");
+//		      return new ResponseEntity<>(new BasicResponse<>(
+//		          new ValidationFailure(Constants.EMAIL, errorMessages.getEmailAlreadyExist()),
+//		          RestApiResponseStatus.VALIDATION_FAILURE,ValidationMessages.EMAIL_EXIST), HttpStatus.BAD_REQUEST);
+//		}
+		EmployeeEntity employeeEntity = mapper.map(employeeData, EmployeeEntity.class);
 		employeeService.createNote(employeeEntity);
-		
-		return new ResponseEntity<Object>(HttpStatus.OK);
-	}
+		return new ResponseEntity<>(HttpStatus.OK);}
+	
+//	@GetMapping("/employee")
+//	public ResponseEntity<EmployeeEntity>getEmployee()
+//	{
+//		//EmployeeEntity employeeEntity = mapper.map(employeeData, EmployeeEntity.class);
+//		//employeeService.createNote(employeeEntity);
+//		EmployeeEntity employeeentity = (EmployeeEntity) employeeService.getEmployee();
+//		EmployeeEntity EmployeeDto = mapper.map(EmployeeEntity.class);
+//		
+//		return new ResponseEntity<EmployeeEntity>(EmployeeDto.HttpStatus.OK);
+//		}
+//		
+	
 	
 	@GetMapping("/employee")
 	public List<EmployeeEntity>getEmployee()
@@ -47,7 +75,7 @@ EmployeeService employeeService;
 	@DeleteMapping("/employee/{id}")
     public ResponseEntity<?> deleteemployee(@PathVariable Long id) {
 		employeeService.deleteemployee(id);
-return ResponseEntity.ok().build();
+return  ResponseEntity.ok().build();
     }
 	
 //	@DeleteMapping("/employee/{id}")
