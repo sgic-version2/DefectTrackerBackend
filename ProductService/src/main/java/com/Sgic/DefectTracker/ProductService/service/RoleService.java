@@ -10,8 +10,8 @@ public interface RoleService {
 
 	public List<Role> getAllRole();
 
-	public Optional<Role> findByID(Long id);
+	public Optional<Role> findByID(Long Rid);
 
-	public void deleteRole(long id);
+	public void deleteRole(long Rid);
 
 }
