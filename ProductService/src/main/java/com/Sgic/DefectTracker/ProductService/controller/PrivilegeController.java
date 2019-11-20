@@ -4,21 +4,23 @@ package com.Sgic.DefectTracker.ProductService.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.ProductService.dto.ProductDto;
-import com.Sgic.DefectTracker.ProductService.dto.mapper.ProductMapper;
+//import com.Sgic.DefectTracker.ProductService.dto.ProductDto;
+//import com.Sgic.DefectTracker.ProductService.dto.mapper.ProductMapper;
+import com.Sgic.DefectTracker.ProductService.entities.Privilege;
 import com.Sgic.DefectTracker.ProductService.service.PrivilegeService;
 import com.Sgic.DefectTracker.ProductService.util.Constants;
 //import com.sgic.employee.server.util.ErrorCodes;
 //import com.sgic.employee.server.controller.EmployeeController;
-import com.sgic.common.api.enums.RestApiResponseStatus;
-import com.sgic.common.api.response.BasicResponse;
-import com.sgic.common.api.response.ValidationFailure;
-import com.sgic.employee.server.dto.EmployeeDto;
-import com.sgic.employee.server.util.ValidationMessages;
+//import com.sgic.common.api.enums.RestApiResponseStatus;
+//import com.sgic.common.api.response.BasicResponse;
+//import com.sgic.common.api.response.ValidationFailure;
+//import com.sgic.employee.server.dto.EmployeeDto;
+//import com.sgic.employee.server.util.ValidationMessages;
 
 @RestController
 public class PrivilegeController {
@@ -29,8 +31,16 @@ public class PrivilegeController {
 	@Autowired
 	Constants constant;
 
-	@Autowired
-	private ProductMapper mapper;
+//	@Autowired
+//	private ProductMapper mapper;
+//	
+
+	@PostMapping(value = "/product")
+	public ResponseEntity<?> createPrivilege(@RequestBody Privilege privilege) {
+		// projectRepository.save(project);
+		privilegeService.createPrivilege(privilege);
+		return new ResponseEntity<Object>(HttpStatus.OK);
+	}
 
 //	private static final Logger logger = Logger.getLogger(PrivilegeController.class);
 	
