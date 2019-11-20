@@ -25,6 +25,7 @@ public class DesignationController {
 	@Autowired
 	private DesignationService designationService;
 	
+
 	@PostMapping(value="/designation")
 	public ResponseEntity<?>createNote(@RequestBody Designation designation)
 	{
@@ -58,5 +59,15 @@ public class DesignationController {
 	public void deleteModule(@PathVariable long id) {
 	designationService.deleteDesignation(id);
 	}
-	}
+	
+
+	
+}
+	
+	
+	
+	
+	
+	
+
 
