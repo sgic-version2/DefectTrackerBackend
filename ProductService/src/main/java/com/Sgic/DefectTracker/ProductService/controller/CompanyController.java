@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.ProductService.entities.CompanyEntity;
+import com.Sgic.DefectTracker.ProductService.entities.Company;
 import com.Sgic.DefectTracker.ProductService.repository.CompanyRepository;
 import com.Sgic.DefectTracker.ProductService.service.CompanyService;
 
@@ -28,25 +28,25 @@ import com.Sgic.DefectTracker.ProductService.service.CompanyService;
 		CompanyService dS;
 
 		@PostMapping("/company")
-		public ResponseEntity<?> createNote(@RequestBody CompanyEntity Company) {
+		public ResponseEntity<?> createNote(@RequestBody Company Company) {
 			dS.saveCompany(Company);
 			return new ResponseEntity<Object>(HttpStatus.OK) ;
 		}
 
 		@GetMapping("/company")
-		public List<CompanyEntity> getCompanyEntity() {
+		public List<Company> getCompanyEntity() {
 			return dS.getAllCompany();
 		}
 		
 		@GetMapping("/company/{id}")
-		public Optional<CompanyEntity> getcompanyById(@PathVariable("id") Long id){
+		public Optional<Company> getcompanyById(@PathVariable("id") Long id){
 			return dS.findByID(id);
 //		return new ResponseEntity<CompanyEntity>(HttpStatus.OK);
 		}
 		
 		@PutMapping("/company/{id}")
-		public ResponseEntity<Object> updateCompany(@RequestBody CompanyEntity company, @PathVariable long id) {
-			Optional<CompanyEntity> companyOptional = dS.findByID(id);
+		public ResponseEntity<Object> updateCompany(@RequestBody Company company, @PathVariable long id) {
+			Optional<Company> companyOptional = dS.findByID(id);
 						if (!companyOptional.isPresent())
 							return ResponseEntity.notFound().build();
 						company.setId(id);
@@ -55,9 +55,9 @@ import com.Sgic.DefectTracker.ProductService.service.CompanyService;
 		}
 		
 		@DeleteMapping("/company/{id}")
-		public ResponseEntity<CompanyEntity> deleteProject(@PathVariable long id) {
+		public ResponseEntity<Company> deleteProject(@PathVariable long id) {
 			dS.deleteCompany(id);
-			return new ResponseEntity<CompanyEntity>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<Company>(HttpStatus.NO_CONTENT);
 		}
 //		@PutMapping("/company/{id}")
 //		public ResponseEntity<Object> updatecompany(@RequestBody CompanyEntity company, @PathVariable long id) {

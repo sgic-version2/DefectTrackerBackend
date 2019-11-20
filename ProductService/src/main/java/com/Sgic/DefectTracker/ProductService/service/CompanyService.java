@@ -5,19 +5,19 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.ProductService.entities.CompanyEntity;
+import com.Sgic.DefectTracker.ProductService.entities.Company;
 
 @Service
 public interface CompanyService {
-	CompanyEntity saveCompany(CompanyEntity company);
+	Company saveCompany(Company company);
 
-	CompanyEntity updateCompany(CompanyEntity company, long id);
+	Company updateCompany(Company company, long id);
 
 	void deleteCompany(long id);
 
-	List<CompanyEntity> getAllCompany();
+	List<Company> getAllCompany();
 
-	Optional<CompanyEntity> findByID(long id);
+	Optional<Company> findByID(long id);
 }
 	
 //	public CompanyEntity createCompany(CompanyEntity company);

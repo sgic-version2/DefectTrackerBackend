@@ -9,23 +9,23 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.Sgic.DefectTracker.ProductService.entities.CompanyEntity;
+import com.Sgic.DefectTracker.ProductService.entities.Company;
 import com.Sgic.DefectTracker.ProductService.repository.CompanyRepository;
 
 @Service
-public class CompanyImpl implements CompanyService{
+public class CompanyServiceImpl implements CompanyService{
 	
 	@Autowired
 	CompanyRepository CompanyRepository;
 
 	@Override
-	public CompanyEntity saveCompany(CompanyEntity company) {
+	public Company saveCompany(Company company) {
 	// TODO Auto-generated method stub
 	return CompanyRepository.save(company);
 	}
 
 	@Override
-	public CompanyEntity updateCompany(CompanyEntity company, long id) {
+	public Company updateCompany(Company company, long id) {
 	// TODO Auto-generated method stub
 	return CompanyRepository.save(company);
 	}
@@ -37,13 +37,13 @@ public class CompanyImpl implements CompanyService{
 	}
 
 	@Override
-	public List<CompanyEntity> getAllCompany() {
+	public List<Company> getAllCompany() {
 	// TODO Auto-generated method stub
 	return CompanyRepository.findAll();
 	}
 
 	@Override
-	public Optional<CompanyEntity> findByID(long id) {
+	public Optional<Company> findByID(long id) {
 	// TODO Auto-generated method stub
 	return CompanyRepository.findById(id);
 	}
