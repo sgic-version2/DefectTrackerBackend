@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.Sgic.DefectTracker.DefectService.entities.DefectStatus;
 
-
 @Repository
 public interface DefectStatusRepository extends JpaRepository<DefectStatus, Long> {
-
 
 }
