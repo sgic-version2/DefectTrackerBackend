@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.Sgic.DefectTracker.DefectService.entities.Priority;
@@ -18,7 +17,7 @@ public class PriorityServiceImpl implements PriorityService {
 
 	public Priority createPriority(@RequestBody Priority priority) {
 		return priorityRepository.save(priority);
-//		return new ResponseEntity<Object>(HttpStatus.OK);
+
 	}
 
 	public List<Priority> getPriority() {
@@ -26,20 +25,14 @@ public class PriorityServiceImpl implements PriorityService {
 
 	}
 
-	public void deletePriority(@PathVariable Long id) {
+	public void deletePriority(Long id) {
 		priorityRepository.deleteById(id);
-//		return ResponseEntity.ok().build();
+
 	}
 
-	public Optional<Priority> getPriorityById(@PathVariable(name = "PriorityId") Long id) {
-
-//		return new ResponseEntity<Priority>(HttpStatus.OK);
+	public Optional<Priority> getPriorityById(Long id) {
 
 		return priorityRepository.findById(id);
 	}
-
-	
-
-	
 
 }
