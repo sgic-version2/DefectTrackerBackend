@@ -8,14 +8,5 @@ import com.Sgic.DefectTracker.DefectService.entities.Project;
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
-	// Project findByProjectId(Long id);
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
