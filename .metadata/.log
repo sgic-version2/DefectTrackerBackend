@@ -1439,3 +1439,95 @@ Contains: Missing antlr:antlr:jar:javadoc:2.7.7
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.925
 !MESSAGE executing callback sts4.classpath.CtIbysIy SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:44:39.091
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.CtIbysIy
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:44:39.106
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.CtIbysIy
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:44:39.106
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:44:39.106
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.CtIbysIy => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:29.728
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:29.728
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@73021987[org.springframework.tooling.boot.ls:1.10.0.201908130624(id=1034)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:29.728
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.512
+!MESSAGE Boot LS startup time from start to initialized: 1769ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.559
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.XOhafjiOisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.574
+!MESSAGE subscribing to classpath changes: sts4.classpath.XOhafjiO isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.574
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.574
+!MESSAGE subsribers = {sts4.classpath.XOhafjiO=Send Classpath Notifications(2547)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.574
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.590
+!MESSAGE project DefectService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.590
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.590
+!MESSAGE Preparing classpath changed notification DefectService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.605
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.XOhafjiO => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.605
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.621
+!MESSAGE classpath=115 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.621
+!MESSAGE buffering callback sts4.classpath.XOhafjiO DefectService false 115
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.621
+!MESSAGE executing callback sts4.classpath.XOhafjiO 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:45:31.652
+!MESSAGE executing callback sts4.classpath.XOhafjiO SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-11-21 12:06:15.136
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2093)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-11-21 12:13:51.676
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2093)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
