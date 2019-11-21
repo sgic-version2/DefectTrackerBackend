@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.EmployeeService.dto.EmployeeDto;
@@ -24,13 +25,14 @@ import com.Sgic.DefectTracker.EmployeeService.service.EmployeeService;
 
 
 @RestController
-
+@RequestMapping("/api/v1")
 public class EmployeeController {
 
 	@Autowired
 EmployeeService employeeService;
 	@Autowired
 	private EmployeeMapper mapper;
+	
 	@PostMapping("/employee")
 	public ResponseEntity<?> createNote(@RequestBody EmployeeEntity employeeEntity)
 	{
@@ -51,7 +53,7 @@ EmployeeService employeeService;
 //		EmployeeEntity employeeEntity = mapper.map(employeeData, EmployeeEntity.class);
 //		employeeService.createNote(employeeEntity);
 //		return new ResponseEntity<>(HttpStatus.OK);}
-	
+//	
 //	@GetMapping("/employee")
 //	public ResponseEntity<EmployeeEntity>getEmployee()
 //	{
@@ -71,6 +73,7 @@ EmployeeService employeeService;
 		return employeeService.getEmployee();
 	}
 	
+
 	
 	@DeleteMapping("/employee/{id}")
     public ResponseEntity<?> deleteemployee(@PathVariable Long id) {
@@ -90,6 +93,8 @@ return  ResponseEntity.ok().build();
 //		
 //	
 //	}
+	
+	
 	@GetMapping("/getemployeeById/{id}")
 	public Optional<EmployeeEntity> getEmployeeById(@PathVariable("id") Long id){
 	return(employeeService.getEmployeeById(id));

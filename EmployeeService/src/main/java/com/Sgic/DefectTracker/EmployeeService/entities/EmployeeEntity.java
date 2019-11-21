@@ -1,8 +1,8 @@
 package com.Sgic.DefectTracker.EmployeeService.entities;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,10 +35,9 @@ public class EmployeeEntity {
 	private String password;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY,optional=false)
-	@JoinColumn(name="designationId")
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name="designationId",nullable=false)
 	@OnDelete(action=OnDeleteAction.CASCADE)
-	
 	private Designation designation;
 	public Designation getDesignation() {
 		return designation;
