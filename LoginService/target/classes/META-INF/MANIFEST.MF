@@ -1,6 +1,12 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Implementation-Title: LoginService
 Implementation-Version: 0.0.1-SNAPSHOT
 Build-Jdk-Spec: 1.8
+=======
+Build-Jdk-Spec: 12
+Implementation-Title: LoginService
+Implementation-Version: 0.0.1-SNAPSHOT
+>>>>>>> origin/pirathajini
 Created-By: Maven Integration for Eclipse
 
