@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +25,21 @@ public class Designation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long designationId;
 	private String designationName;
+
+	
+	@OneToOne
+	private EmployeeEntity employee;
+	
+	public EmployeeEntity getEmployee() {
+		return employee;
+	}
+	public void setEmployee(EmployeeEntity employee) {
+		this.employee = employee;
+	}
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	private Set<EmployeeEntity> employeeEntity;
+
 
 	public long getDesignationId() {
 		return designationId;
