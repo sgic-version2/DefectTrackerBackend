@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.ProductService.dto.PrivilegeDto;
 import com.Sgic.DefectTracker.ProductService.dto.mapper.Mapper;
 import com.Sgic.DefectTracker.ProductService.entities.Privilege;
-import com.Sgic.DefectTracker.ProductService.entities.Role;
 import com.Sgic.DefectTracker.ProductService.service.PrivilegeService;
 
 @RestController
+@RequestMapping("/api/v1")
 public class PrivilegeController {
 	
 	@Autowired

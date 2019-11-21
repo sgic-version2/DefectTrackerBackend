@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.ProductService.dto.PrivilegeDto;
 import com.Sgic.DefectTracker.ProductService.dto.ProductPrivilegeDto;
 import com.Sgic.DefectTracker.ProductService.dto.mapper.Mapper;
-import com.Sgic.DefectTracker.ProductService.entities.Privilege;
 import com.Sgic.DefectTracker.ProductService.entities.ProductPrivilege;
 import com.Sgic.DefectTracker.ProductService.service.ProductPrivilegeService;
 
 @RestController
+@RequestMapping("/api/v1")
 public class ProductPrivilegeController {
 	
 	@Autowired
@@ -29,7 +29,7 @@ public class ProductPrivilegeController {
 	@Autowired
 	private Mapper mapper;
 	
-	@PostMapping(value="/productPrivilege")
+	@PostMapping(value="/ProductPrivilege")
 	public ResponseEntity<Object> createSeverity(@RequestBody ProductPrivilegeDto productPrivilegeDto) {
 		
 		ProductPrivilege productPrivilege = mapper.map(productPrivilegeDto, ProductPrivilege.class);

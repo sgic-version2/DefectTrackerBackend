@@ -3,24 +3,25 @@ package com.Sgic.DefectTracker.ProductService.dto;
 public class PrivilegeDetailsDto {
 	private Long PDid;
 	 
-	private Long Pid;
-	private Long Rid;
+	private Long privilege_id;
+	private Long role_id;
 	public Long getPDid() {
 		return PDid;
 	}
 	public void setPDid(Long pDid) {
 		PDid = pDid;
 	}
-	public Long getPid() {
-		return Pid;
+	public Long getPrivilege_id() {
+		return privilege_id;
 	}
-	public void setPid(Long pid) {
-		Pid = pid;
+	public void setPrivilege_id(Long privilege_id) {
+		this.privilege_id = privilege_id;
 	}
-	public Long getRid() {
-		return Rid;
+	public Long getRole_id() {
+		return role_id;
 	}
-	public void setRid(Long rid) {
-		Rid = rid;
+	public void setRole_id(Long role_id) {
+		this.role_id = role_id;
 	}
+	
 }

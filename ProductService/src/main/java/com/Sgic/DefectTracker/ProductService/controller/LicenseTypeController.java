@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
-import com.Sgic.DefectTracker.ProductService.repository.LicenseTypeRepository;
 import com.Sgic.DefectTracker.ProductService.service.LicenseTypeService;
-import com.Sgic.DefectTracker.ProductService.service.LicenseTypeServiceImpl;
 
 @RestController
 @RequestMapping("/api/v1")
