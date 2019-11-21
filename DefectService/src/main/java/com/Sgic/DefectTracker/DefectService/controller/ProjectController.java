@@ -40,6 +40,10 @@ public class ProjectController {
 	{
 	return projectServices.getAllProject();
 	}
+	@GetMapping("/project/{id}")
+	public Optional<Project> getProjectgById(@PathVariable("id") Long id) {
+		return projectServices.findByID(id);
+	}
 
 	@PutMapping("/project/{id}")
 	public ResponseEntity<Object> updateProject(@RequestBody Project project, @PathVariable long id) {
