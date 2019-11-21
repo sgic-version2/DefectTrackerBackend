@@ -1,19 +1,6 @@
-package com.Sgic.DefectTracker.ProductService.entities;
+package com.Sgic.DefectTracker.ProductService.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name ="ProductPrivilege")
-public class ProductPrivilege {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	
+public class ProductPrivilegeDto {
 	private Long PRid;
 	private Long privilege_id;
 	private String status;
