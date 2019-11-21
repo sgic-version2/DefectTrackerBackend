@@ -5,16 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.OneToOne;
-
-
-
-
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name="employee")
 public class EmployeeEntity {
 
 	@Id
@@ -28,7 +25,17 @@ public class EmployeeEntity {
 	private String username;
 	private String password;
 	
+	@OneToOne
+	@JoinColumn(name="designation_id")
+	private Designation designation;
 	
+	
+	public Designation getDesignation() {
+		return designation;
+	}
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
+	}
 	public Long getEmployeeId() {
 		return employeeId;
 	}
