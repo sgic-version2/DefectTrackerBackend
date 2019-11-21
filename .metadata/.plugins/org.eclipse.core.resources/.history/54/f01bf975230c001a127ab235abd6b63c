@@ -60,7 +60,7 @@ public class DefectStatusController {
 //
 //		return defectStatusService.getDefectStatusById(id);
 //	}
-	@GetMapping("/getdefectStatusById/{id}")
+	@GetMapping("/getdefectStatusById/{defectStatusId}")
 	public ResponseEntity<DefectStatus> getDefectStatus(@PathVariable(value = "id") Long id)
 			throws ResourceNotFoundException {
 		DefectStatus defectStatus = defectStatusService.getDefectStatusById(id)

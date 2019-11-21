@@ -63,7 +63,13 @@ public class DefectTypeController {
 				.orElseThrow(() -> new ResourceNotFoundException("DefectType not found for this id :: " + id));
 		return ResponseEntity.ok().body(defectType);
 	}
-
+//	@GetMapping("/getseverityById/{id}")
+//	public ResponseEntity<Severity> getSeverityById(@PathVariable(value = "id") Long id)
+//			throws ResourceNotFoundException {
+//		Severity severity = severityService.getSeverityById(id)
+//				.orElseThrow(() -> new ResourceNotFoundException("Severity not found for this id :: " + id));
+//		return ResponseEntity.ok().body(severity);
+//	}
 
 	@PutMapping("/updatedefectType/{id}")
 	public ResponseEntity<Object> editDefectType(@RequestBody DefectType defectType, @PathVariable("id") Long id) {

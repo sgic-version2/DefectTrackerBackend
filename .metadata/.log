@@ -1373,3 +1373,69 @@ Contains: Missing antlr:antlr:jar:javadoc:2.7.7
 !MESSAGE Could not resolve artifact antlr:antlr:jar:javadoc:2.7.7
 !SUBENTRY 2 org.eclipse.m2e.core 4 -1 2019-11-21 10:05:24.612
 !MESSAGE Missing antlr:antlr:jar:javadoc:2.7.7
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:34.162
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.VSDpYged
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:34.178
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.VSDpYged
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:34.178
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:34.194
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.VSDpYged => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:40.988
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:40.988
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@73021987[org.springframework.tooling.boot.ls:1.10.0.201908130624(id=1034)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:40.988
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.786
+!MESSAGE Boot LS startup time from start to initialized: 1782ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.835
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.CtIbysIyisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.841
+!MESSAGE subscribing to classpath changes: sts4.classpath.CtIbysIy isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.847
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.854
+!MESSAGE subsribers = {sts4.classpath.CtIbysIy=Send Classpath Notifications(2478)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.860
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.866
+!MESSAGE project DefectService ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.872
+!MESSAGE Preparing classpath changed notification DefectService
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.877
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.883
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.888
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.CtIbysIy => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.893
+!MESSAGE classpath=115 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.902
+!MESSAGE buffering callback sts4.classpath.CtIbysIy DefectService false 115
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.908
+!MESSAGE executing callback sts4.classpath.CtIbysIy 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-21 11:24:42.925
+!MESSAGE executing callback sts4.classpath.CtIbysIy SUCCESS [done]
