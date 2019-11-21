@@ -31,26 +31,26 @@ public class EmployeeController {
 EmployeeService employeeService;
 	@Autowired
 	private EmployeeMapper mapper;
-//	@PostMapping("/employee")
-//	public ResponseEntity<?> createNote(@RequestBody EmployeeEntity employeeEntity)
-//	{
-//		employeeService.createNote(employeeEntity);
-//		
-//		return new ResponseEntity<Object>(HttpStatus.OK);
-//	}
-	
-	
-	@PostMapping(value = "/employee")
-	public ResponseEntity<Object> createEmployee(@RequestBody EmployeeDto employeeData) {
-//		if (employeeService.isEmailAlreadyExist(employeeData.getEmail())) {
-//		      logger.debug("Email already exists: createEmployee(), email: {}");
-//		      return new ResponseEntity<>(new BasicResponse<>(
-//		          new ValidationFailure(Constants.EMAIL, errorMessages.getEmailAlreadyExist()),
-//		          RestApiResponseStatus.VALIDATION_FAILURE,ValidationMessages.EMAIL_EXIST), HttpStatus.BAD_REQUEST);
-//		}
-		EmployeeEntity employeeEntity = mapper.map(employeeData, EmployeeEntity.class);
+	@PostMapping("/employee")
+	public ResponseEntity<?> createNote(@RequestBody EmployeeEntity employeeEntity)
+	{
 		employeeService.createNote(employeeEntity);
-		return new ResponseEntity<>(HttpStatus.OK);}
+		
+		return new ResponseEntity<Object>(HttpStatus.OK);
+	}
+	
+	
+//	@PostMapping(value = "/employee")
+//	public ResponseEntity<Object> createEmployee(@RequestBody EmployeeDto employeeData) {
+////		if (employeeService.isEmailAlreadyExist(employeeData.getEmail())) {
+////		      logger.debug("Email already exists: createEmployee(), email: {}");
+////		      return new ResponseEntity<>(new BasicResponse<>(
+////		          new ValidationFailure(Constants.EMAIL, errorMessages.getEmailAlreadyExist()),
+////		          RestApiResponseStatus.VALIDATION_FAILURE,ValidationMessages.EMAIL_EXIST), HttpStatus.BAD_REQUEST);
+////		}
+//		EmployeeEntity employeeEntity = mapper.map(employeeData, EmployeeEntity.class);
+//		employeeService.createNote(employeeEntity);
+//		return new ResponseEntity<>(HttpStatus.OK);}
 	
 //	@GetMapping("/employee")
 //	public ResponseEntity<EmployeeEntity>getEmployee()

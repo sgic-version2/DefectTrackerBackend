@@ -2,11 +2,17 @@ package com.Sgic.DefectTracker.EmployeeService.entities;
 
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 
 
@@ -29,6 +35,17 @@ public class EmployeeEntity {
 	private String password;
 	
 	
+	@ManyToOne(fetch=FetchType.LAZY,optional=false)
+	@JoinColumn(name="designationId")
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	
+	private Designation designation;
+	public Designation getDesignation() {
+		return designation;
+	}
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
+	}
 	public Long getEmployeeId() {
 		return employeeId;
 	}
