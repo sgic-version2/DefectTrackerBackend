@@ -1,8 +1,11 @@
 package com.Sgic.DefectTracker.DefectService.services;
 
+
+
 import java.util.List;
 import java.util.Optional;
 
+import com.Sgic.DefectTracker.DefectService.entities.Module;
 import com.Sgic.DefectTracker.DefectService.entities.Project;
 
 public interface ProjectServices {
@@ -16,5 +19,8 @@ public interface ProjectServices {
 	List<Project> getAllProject();
 
 	Optional<Project> findByID(long id);
+
+	
+	
 
 }

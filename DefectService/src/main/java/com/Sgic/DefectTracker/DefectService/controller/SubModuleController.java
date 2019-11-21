@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
 import com.Sgic.DefectTracker.DefectService.entities.SubModule;
 import com.Sgic.DefectTracker.DefectService.services.SubModuleService;
 
@@ -35,6 +36,14 @@ public class SubModuleController {
 	public List<SubModule> getSubModule() {
 		return subModuleService.getAllSubModule();
 
+	}
+
+	@GetMapping("/submodule/{id}")
+	public ResponseEntity<SubModule> getsubModuleById(@PathVariable(value = "id") Long id)
+			throws ResourceNotFoundException {
+		SubModule subModule = subModuleService.findByID(id)
+				.orElseThrow(() -> new ResourceNotFoundException("SubModule not found for this id :: " + id));
+		return ResponseEntity.ok().body(subModule);
 	}
 
 	@PutMapping("/submodule/{id}")
