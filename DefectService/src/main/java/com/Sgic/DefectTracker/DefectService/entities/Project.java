@@ -13,12 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="", name="project")
+@Table( name="project")
 public class Project implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	@Id
 	
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
 	private Set<Module> module;
