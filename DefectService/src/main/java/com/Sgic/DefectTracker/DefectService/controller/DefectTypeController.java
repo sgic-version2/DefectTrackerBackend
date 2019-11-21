@@ -19,7 +19,6 @@ import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
 import com.Sgic.DefectTracker.DefectService.dto.DefectTypeDto;
 import com.Sgic.DefectTracker.DefectService.dto.mapper.Mapper;
 import com.Sgic.DefectTracker.DefectService.entities.DefectType;
-import com.Sgic.DefectTracker.DefectService.entities.Severity;
 import com.Sgic.DefectTracker.DefectService.services.DefectTypeService;
 
 @RestController
@@ -63,7 +62,6 @@ public class DefectTypeController {
 				.orElseThrow(() -> new ResourceNotFoundException("DefectType not found for this id :: " + id));
 		return ResponseEntity.ok().body(defectType);
 	}
-
 
 	@PutMapping("/updatedefectType/{id}")
 	public ResponseEntity<Object> editDefectType(@RequestBody DefectType defectType, @PathVariable("id") Long id) {
