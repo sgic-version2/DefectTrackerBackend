@@ -1,0 +1,65 @@
+package com.Sgic.DefectTracker.DefectService.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
+import com.Sgic.DefectTracker.DefectService.entities.DefectStatus;
+import com.Sgic.DefectTracker.DefectService.repositories.DefectRepository;
+import com.Sgic.DefectTracker.DefectService.repositories.DefectStatusRepository;
+
+public class DefectServiceImpl implements DefectService{
+@Autowired
+DefectRepository DefectRepository;
+	@Override
+	public DefectEntity createDefectEntity(DefectEntity defectEntity) {
+		return DefectRepository.save(defectEntity);
+	}
+
+	@Override
+	public List<DefectEntity> getDefectEntity() {
+		return DefectRepository.findAll();
+	}
+
+	@Override
+	public Optional<DefectEntity> getDefectEntityById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteDefectEntity(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Autowired
+	DefectStatusRepository defectStatusRepository;
+
+	@Override
+	public DefectStatus createDefectStatus(DefectStatus defectStatus) {
+
+		return defectStatusRepository.save(defectStatus);
+	}
+
+	@Override
+	public List<DefectStatus> getDefectStatus() {
+
+		return defectStatusRepository.findAll();
+	}
+
+	@Override
+	public Optional<DefectStatus> getDefectStatusById(Long id) {
+
+		return defectStatusRepository.findById(id);
+	}
+
+	@Override
+	public void deleteDefectStatus(Long id) {
+
+		defectStatusRepository.deleteById(id);
+
+	}
+
+}
