@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
 import com.Sgic.DefectTracker.DefectService.entities.Module;
 import com.Sgic.DefectTracker.DefectService.services.ModuleServices;
 
@@ -34,6 +36,14 @@ public class ModuleController {
 	public List<Module> getModule() {
 		return moduleServices.getAllModule();
 
+	}
+
+	@GetMapping("/module/{id}")
+	public ResponseEntity<Module> getModuleById(@PathVariable(value = "id") Long id)
+			throws ResourceNotFoundException {
+		Module module = moduleServices.findByID(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Module not found for this id :: " + id));
+		return ResponseEntity.ok().body(module);
 	}
 
 	@PutMapping("/module/{id}")

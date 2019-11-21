@@ -20,7 +20,6 @@ import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
 import com.Sgic.DefectTracker.DefectService.services.DefectService;
 
 @RestController
-
 @RequestMapping("/api/v1")
 public class DefectController {
 
