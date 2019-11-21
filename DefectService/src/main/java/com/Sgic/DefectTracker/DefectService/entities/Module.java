@@ -19,7 +19,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 
-@Table(schema = "", name = "module")
+@Table(name = "module")
 public class Module implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,24 +27,24 @@ public class Module implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long module_id;
 	private String module_name;
-	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
-	@JoinColumn(name = "project_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Project project;
-	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
-	private Set<SubModule> subModule;
+//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+//	@JoinColumn(name = "project_id")
+//	@OnDelete(action = OnDeleteAction.CASCADE)
+//	private Project project;
+////	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+//	private Set<SubModule> subModule;
 
 	public long getModule_id() {
 		return module_id;
 	}
 
-	public Project getProject() {
-		return project;
-	}
+//	public Project getProject() {
+//		return project;
+//	}
 
-	public void setProject(Project project) {
-		this.project = project;
-	}
+//	public void setProject(Project project) {
+//		this.project = project;
+//	}
 
 	public void setModule_id(long module_id) {
 		this.module_id = module_id;
@@ -62,11 +62,11 @@ public class Module implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Set<SubModule> getSubModule() {
-		return subModule;
-	}
-
-	public void setSubModule(Set<SubModule> subModule) {
-		this.subModule = subModule;
-	}
+//	public Set<SubModule> getSubModule() {
+//		return subModule;
+//	}
+//
+//	public void setSubModule(Set<SubModule> subModule) {
+//		this.subModule = subModule;
+//	}
 }

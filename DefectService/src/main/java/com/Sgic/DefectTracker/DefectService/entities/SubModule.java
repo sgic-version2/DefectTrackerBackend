@@ -23,17 +23,17 @@ public class SubModule implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long submodule_id;
 	private String submodule_name;
-	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
-	@JoinColumn(name = "module_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Module module;
-	public Module getModule() {
-		return module;
-	}
-	public void setModule(Module module) {
-		this.module = module;
-	}
-	public long getSubmodule_id() {
+//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+//	@JoinColumn(name = "module_id")
+//	@OnDelete(action = OnDeleteAction.CASCADE)
+//	private Module module;
+//	public Module getModule() {
+//		return module;
+//	}
+//	public void setModule(Module module) {
+//		this.module = module;
+//	}
+public long getSubmodule_id() {
 		return submodule_id;
 	}
 	public void setSubmodule_id(long submodule_id) {

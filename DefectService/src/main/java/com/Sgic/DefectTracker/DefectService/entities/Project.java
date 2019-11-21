@@ -13,22 +13,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="", name="project")
+@Table(name="project")
 public class Project implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
-	private Set<Module> module;
-	
-	public Set<Module> getModule() {
-		return module;
-	}
-	public void setModule(Set<Module> module) {
-		this.module = module;
-	}
+//	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+//	private Set<Module> module;
+//	
+//	public Set<Module> getModule() {
+//		return module;
+//	}
+//	public void setModule(Set<Module> module) {
+//		this.module = module;
+//	}
 	private long project_id;
 	private  String project_name;
 	private  String start_date;
