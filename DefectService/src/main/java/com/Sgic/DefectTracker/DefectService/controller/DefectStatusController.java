@@ -60,6 +60,7 @@ public class DefectStatusController {
 //
 //		return defectStatusService.getDefectStatusById(id);
 //	}
+
 	@GetMapping("/getdefectStatusById/{id}")
 	public ResponseEntity<DefectStatus> getDefectStatus(@PathVariable(value = "id") Long id)
 			throws ResourceNotFoundException {
@@ -82,7 +83,6 @@ public class DefectStatusController {
 
 		return new ResponseEntity<>("Severity successfully updated", HttpStatus.OK);
 	}
-	
 
 	@DeleteMapping("/defectStatus/{id}")
 	public ResponseEntity<?> deleteDefectStatus(@PathVariable Long id) {

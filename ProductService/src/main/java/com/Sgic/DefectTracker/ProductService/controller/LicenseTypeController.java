@@ -1,8 +1,5 @@
 package com.Sgic.DefectTracker.ProductService.controller;
 
- 
- 
- 
 import java.util.List;
 import java.util.Optional;
 
@@ -25,29 +22,31 @@ import com.Sgic.DefectTracker.ProductService.service.LicenseTypeService;
 @RequestMapping("/api/v1")
 public class LicenseTypeController {
 	@Autowired
-	 LicenseTypeService  licenseTypeService;
+	LicenseTypeService licenseTypeService;
 
 	@PostMapping(value = "/licenseType")
 	public ResponseEntity<?> createNote(@RequestBody LicenseType licenseType) {
 		licenseTypeService.createNote(licenseType);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
+
 	@GetMapping("/licenseType")
-	  public List<LicenseType> getLicenseType() {
+	public List<LicenseType> getLicenseType() {
 		return licenseTypeService.getLicenseType();
 
 	}
 
 	@DeleteMapping("/licenseType/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) { 
+	public ResponseEntity<?> delete(@PathVariable Long id) {
 		licenseTypeService.delete(id);
 		return ResponseEntity.ok().build();
-    }
-	@GetMapping("/getlicenseTypeById/{id}")
-	public Optional<LicenseType>  getlicenseTypeById(@PathVariable("id") Long id){
-		return(licenseTypeService.getlicenseTypeById(id));
 	}
-	
+
+	@GetMapping("/getlicenseTypeById/{id}")
+	public Optional<LicenseType> getlicenseTypeById(@PathVariable("id") Long id) {
+		return (licenseTypeService.getlicenseTypeById(id));
+	}
+
 	@PutMapping("/updatelicenseType/{id}")
 	public ResponseEntity<Object> updateLicenseTypeEntity(@RequestBody LicenseType licenseType, @PathVariable long id) {
 
@@ -62,7 +61,5 @@ public class LicenseTypeController {
 
 		return ResponseEntity.noContent().build();
 	}
-	
- 
 
 }

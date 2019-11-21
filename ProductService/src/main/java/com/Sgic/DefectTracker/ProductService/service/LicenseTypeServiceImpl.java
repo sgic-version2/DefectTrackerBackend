@@ -8,34 +8,31 @@ import org.springframework.stereotype.Service;
 
 import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
 import com.Sgic.DefectTracker.ProductService.repository.LicenseTypeRepository;
+
 @Service
-public class LicenseTypeServiceImpl implements LicenseTypeService
-{
+public class LicenseTypeServiceImpl implements LicenseTypeService {
 	@Autowired
 	LicenseTypeRepository licenseTypeRepository;
 
-	 
-	public LicenseType createNote( LicenseType licenseType) {
+	public LicenseType createNote(LicenseType licenseType) {
 		return licenseTypeRepository.save(licenseType);
-		 
+
 	}
-	 
-	  public List<LicenseType> getLicenseType() {
+
+	public List<LicenseType> getLicenseType() {
 		return licenseTypeRepository.findAll();
 
 	}
 
-	 
-    public void delete(Long id) { 
-		  licenseTypeRepository.deleteById(id);
-		 
-    }
-	 
-	public Optional<LicenseType>  getlicenseTypeById( Long id){
-		return(licenseTypeRepository.findById(id));
+	public void delete(Long id) {
+		licenseTypeRepository.deleteById(id);
+
 	}
-	
-	 
+
+	public Optional<LicenseType> getlicenseTypeById(Long id) {
+		return (licenseTypeRepository.findById(id));
+	}
+
 //	public ResponseEntity<Object> updateLicenseTypeEntity(@RequestBody LicenseTypeEntity licenseType, @PathVariable long id) {
 //
 //		Optional<LicenseTypeEntity> licenseTypeOptional = licenseTypeRepository.findById(id);
@@ -49,7 +46,5 @@ public class LicenseTypeServiceImpl implements LicenseTypeService
 //
 //		return ResponseEntity.noContent().build();
 //	}
-	
-
 
 }
