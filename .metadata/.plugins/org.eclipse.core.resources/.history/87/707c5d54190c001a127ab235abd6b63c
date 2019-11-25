@@ -1,0 +1,34 @@
+package com.Sgic.DefectTracker.DefectService.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
+
+public class DefectServiceImpl implements DefectService{
+
+	@Override
+	public DefectEntity createDefectEntity(DefectEntity defectEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DefectEntity> getDefectEntity() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<DefectEntity> getDefectEntityById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteDefectEntity(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

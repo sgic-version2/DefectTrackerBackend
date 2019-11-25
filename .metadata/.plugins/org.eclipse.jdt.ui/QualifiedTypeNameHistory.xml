@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.dto.PriorityDto"/>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.dto.DefectTypeDto"/>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.dto.DefectStatusDto"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.CreationTimestamp"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.UpdateTimestamp"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="java.lang.Long"/>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.repositories.DefectRepository"/>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.services.DefectService"/>
+    <fullyQualifiedTypeName name="com.Sgic.DefectTracker.DefectService.entities.DefectEntity"/>
+</qualifiedTypeNameHistroy>
