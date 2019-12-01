@@ -23,23 +23,18 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectServices projectServices;
-	
-	
-	
-	@PostMapping(value="/project")
-	public ResponseEntity<?>createNote(@RequestBody Project project)
-	{
-	projectServices.saveProject(project);
-	    return new ResponseEntity<Object>(HttpStatus.OK);
+
+	@PostMapping(value = "/project")
+	public ResponseEntity<?> createNote(@RequestBody Project project) {
+		projectServices.saveProject(project);
+		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
-	
-	
-	
+
 	@GetMapping("/project")
-	public List<Project> ListProject()
-	{
-	return projectServices.getAllProject();
+	public List<Project> ListProject() {
+		return projectServices.getAllProject();
 	}
+
 	@GetMapping("/project/{id}")
 	public Optional<Project> getProjectgById(@PathVariable("id") Long id) {
 		return projectServices.findByID(id);
@@ -59,9 +54,9 @@ public class ProjectController {
 
 		return ResponseEntity.noContent().build();
 	}
+
 	@DeleteMapping("/project/{id}")
 	public void deleteModule(@PathVariable long id) {
 		projectServices.deleteProject(id);
 	}
 }
-
