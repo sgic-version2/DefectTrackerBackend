@@ -1,0 +1,9 @@
+package com.Sgic.DefectTracker.DefectService.repositories;
+
+
+
+import com.Sgic.DefectTracker.DefectService.entities.ResourceAllocation;
+
+public interface RoleAllocationRepository extends JpaRepository<RoleAllocation , Long> {
+
+}

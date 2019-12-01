@@ -31,9 +31,15 @@ public class DefectEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long defectId;
 	private Long projectId;
-	private Long moduleId;
 	private Long assignto;
 	private Long assignby;
+	private Long attachmentId;
+
+	private Long fixedBy;
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name = "moduleId")
+	private Module module;
+
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "severityId")
 	private Severity severity;
@@ -46,10 +52,9 @@ public class DefectEntity implements Serializable {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "defectTypeId")
 	private DefectType defectType;
-	private Long attachmentId;
-	private String description;
 
-	private Long fixedBy;
+	
+	private String description;
 	private String foundIn;
 	private String fixedIn;
 
@@ -72,6 +77,15 @@ public class DefectEntity implements Serializable {
 
 	public void setPriority(Priority priority) {
 		this.priority = priority;
+	}
+
+	
+	public Module getModule() {
+		return module;
+	}
+
+	public void setModule(Module module) {
+		this.module = module;
 	}
 
 	public DefectStatus getDefectStatus() {
@@ -106,13 +120,7 @@ public class DefectEntity implements Serializable {
 		this.projectId = projectId;
 	}
 
-	public Long getModuleId() {
-		return moduleId;
-	}
-
-	public void setModuleId(Long moduleId) {
-		this.moduleId = moduleId;
-	}
+	
 
 	public Long getAssignto() {
 		return assignto;

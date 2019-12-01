@@ -1,0 +1,5 @@
+package com.Sgic.DefectTracker.DefectService.repositories;
+
+public class RoleAllocationRepository {
+
+}

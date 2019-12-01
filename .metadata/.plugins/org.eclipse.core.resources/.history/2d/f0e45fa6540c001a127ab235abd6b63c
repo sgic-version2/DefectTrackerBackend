@@ -1,0 +1,61 @@
+package com.Sgic.DefectTracker.DefectService.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.Sgic.DefectTracker.DefectService.entities.ResourceAllocation;
+import com.Sgic.DefectTracker.DefectService.entities.Severity;
+import com.Sgic.DefectTracker.DefectService.repositories.ResourceAllocationRepository;
+import com.Sgic.DefectTracker.DefectService.repositories.SeverityRepository;
+
+public class ResourceAllocationServiceImpl implements ResourceAllocationService {
+	@Autowired
+	ResourceAllocationRepository resourceAllocationRepository;
+	@Override
+	public ResourceAllocation createResourceAllocation(ResourceAllocation resourceAllocation) {
+		// TODO Auto-generated method stub
+		return resourceAllocationRepository.save(resourceAllocation);
+	}
+
+	@Override
+	public List<ResourceAllocation> getResourceAllocation() {
+		// TODO Auto-generated method stub
+		return resourceAllocationRepository.findAll();
+	}
+
+	@Override
+	public Optional<ResourceAllocation> getResourceAllocationById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteResourceAllocation(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+@Autowired
+SeverityRepository severityRepository;
+
+public Severity createSeverity(Severity severity) {
+	return severityRepository.save(severity);
+
+}
+
+public List<Severity> getSeverity() {
+	return severityRepository.findAll();
+
+}
+
+public void deleteSeverity(Long id) {
+	severityRepository.deleteById(id);
+
+}
+
+public Optional<Severity> getSeverityById(Long id) {
+	return severityRepository.findById(id);
+}

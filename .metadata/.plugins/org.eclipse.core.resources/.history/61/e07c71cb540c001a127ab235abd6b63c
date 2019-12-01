@@ -1,0 +1,21 @@
+package com.Sgic.DefectTracker.DefectService.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.Sgic.DefectTracker.DefectService.entities.ResourceAllocation;
+import com.Sgic.DefectTracker.DefectService.entities.Severity;
+
+public interface ResourceAllocationService {
+	// Method for Save Severity Entity
+		public ResourceAllocation createResourceAllocation(ResourceAllocation resourceAllocation);
+
+		// Method for Severity List
+		public List<ResourceAllocation> getResourceAllocation();
+
+		// Method for Getting One Severity Record by ID
+		public Optional<ResourceAllocation> getResourceAllocationById(Long id);
+
+		// Method for Getting One Severity Record by Id
+		public void deleteResourceAllocation(Long id);
+}
