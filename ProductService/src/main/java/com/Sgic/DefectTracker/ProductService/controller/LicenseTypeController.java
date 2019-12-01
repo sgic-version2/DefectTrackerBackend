@@ -15,51 +15,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.ProductService.entities.LicenseTypeEntity;
-import com.Sgic.DefectTracker.ProductService.repository.LicenseTypeRepository;
-import com.Sgic.DefectTracker.ProductService.service.LicenseTypeServiceImpl;
+import com.Sgic.DefectTracker.ProductService.entities.LicenseType;
+import com.Sgic.DefectTracker.ProductService.service.LicenseTypeService;
 
 @RestController
 @RequestMapping("/api/v1")
 public class LicenseTypeController {
 	@Autowired
-	LicenseTypeRepository licenseTypeRepository;
+	LicenseTypeService licenseTypeService;
 
 	@PostMapping(value = "/licenseType")
-	public ResponseEntity<?> createNote(@RequestBody LicenseTypeEntity licenseType) {
-		licenseTypeRepository.save(licenseType);
+	public ResponseEntity<?> createNote(@RequestBody LicenseType licenseType) {
+		licenseTypeService.createNote(licenseType);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
+
 	@GetMapping("/licenseType")
-	  public List<LicenseTypeEntity> getLicenseType() {
-		return licenseTypeRepository.findAll();
+	public List<LicenseType> getLicenseType() {
+		return licenseTypeService.getLicenseType();
 
 	}
 
 	@DeleteMapping("/licenseType/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) { 
-		licenseTypeRepository.deleteById(id);
+	public ResponseEntity<?> delete(@PathVariable Long id) {
+		licenseTypeService.delete(id);
 		return ResponseEntity.ok().build();
-    }
-	@GetMapping("/getlicenseTypeById/{id}")
-	public Optional<LicenseTypeEntity>  getlicenseTypeById(@PathVariable("id") Long id){
-		return(licenseTypeRepository.findById(id));
 	}
-	
-	@PutMapping("/updatelicenseType/{id}")
-	public ResponseEntity<Object> updateLicenseTypeEntity(@RequestBody LicenseTypeEntity licenseType, @PathVariable long id) {
 
-		Optional<LicenseTypeEntity> licenseTypeOptional = licenseTypeRepository.findById(id);
+	@GetMapping("/getlicenseTypeById/{id}")
+	public Optional<LicenseType> getlicenseTypeById(@PathVariable("id") Long id) {
+		return (licenseTypeService.getlicenseTypeById(id));
+	}
+
+	@PutMapping("/updatelicenseType/{id}")
+	public ResponseEntity<Object> updateLicenseTypeEntity(@RequestBody LicenseType licenseType, @PathVariable long id) {
+
+		Optional<LicenseType> licenseTypeOptional = licenseTypeService.getlicenseTypeById(id);
 
 		if (!licenseTypeOptional.isPresent())
 			return ResponseEntity.notFound().build();
 
 		licenseType.setLid(id);
 
-		licenseTypeRepository.save(licenseType);
+		licenseTypeService.createNote(licenseType);
 
 		return ResponseEntity.noContent().build();
 	}
-	
 
 }
