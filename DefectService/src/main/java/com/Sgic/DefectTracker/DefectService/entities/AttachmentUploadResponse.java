@@ -1,14 +1,19 @@
 package com.Sgic.DefectTracker.DefectService.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "file")
 public class AttachmentUploadResponse {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +22,10 @@ public class AttachmentUploadResponse {
 	private String fileDownloadUri;
 	private String fileType;
 	private long size;
-	private long defectId;
+
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name = "defectId")
+	private Defect defect;
 
 	public AttachmentUploadResponse(String fileName, String fileDownloadUri, String fileType, long size) {
 		this.fileName = fileName;
@@ -66,6 +74,12 @@ public class AttachmentUploadResponse {
 		this.size = size;
 	}
 
-	// Getters and Setters (Omitted for brevity)
+	public Defect getDefect() {
+		return defect;
+	}
+
+	public void setDefect(Defect defect) {
+		this.defect = defect;
+	}
 
 }

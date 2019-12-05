@@ -50,7 +50,8 @@ public class Defect implements Serializable {
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "defectTypeId")
 	private DefectType defectType;
-//	private Long attachmentId;
+	
+	private Long attachmentId;
 	private String description;
 
 	private Long fixedBy;
@@ -134,13 +135,13 @@ public class Defect implements Serializable {
 		this.assignby = assignby;
 	}
 
-//	public Long getAttachmentId() {
-//		return attachmentId;
-//	}
-//
-//	public void setAttachmentId(Long attachmentId) {
-//		this.attachmentId = attachmentId;
-//	}
+	public Long getAttachmentId() {
+		return attachmentId;
+	}
+
+	public void setAttachmentId(Long attachmentId) {
+		this.attachmentId = attachmentId;
+	}
 
 	public String getDescription() {
 		return description;
