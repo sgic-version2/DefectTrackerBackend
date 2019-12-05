@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -17,9 +19,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.Sgic.DefectTracker.DefectService.Exception.AttachmentNotFoundException;
 import com.Sgic.DefectTracker.DefectService.Exception.AttachmentStorageException;
 import com.Sgic.DefectTracker.DefectService.entities.AttachmentStorageProperties;
+import com.Sgic.DefectTracker.DefectService.entities.AttachmentUploadResponse;
+import com.Sgic.DefectTracker.DefectService.repositories.AttachmentRepository;
 
 @Service
 public class AttachmentStorageServiceImpl implements AttachmentStorageService {
+
+	@Autowired
+	AttachmentRepository attachmentRepository;
 
 	private final Path fileStorageLocation;
 
@@ -69,5 +76,25 @@ public class AttachmentStorageServiceImpl implements AttachmentStorageService {
 		} catch (MalformedURLException ex) {
 			throw new AttachmentNotFoundException("File not found " + fileName, ex);
 		}
+	}
+
+	@Override
+	public AttachmentUploadResponse addAttachment(AttachmentUploadResponse uploadResponse) {
+		return attachmentRepository.save(uploadResponse);
+	}
+
+	@Override
+	public List<AttachmentUploadResponse> getAttachment() {
+		return attachmentRepository.findAll();
+	}
+
+	@Override
+	public Optional<AttachmentUploadResponse> getAttachmentById(Long id) {
+		return attachmentRepository.findById(id);
+	}
+
+	@Override
+	public void deleteAttachment(Long id) {
+		attachmentRepository.deleteById(id);
 	}
 }

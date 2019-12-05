@@ -12,17 +12,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.Sgic.DefectTracker.DefectService.entities.AttachmentUploadResponse;
+import com.Sgic.DefectTracker.DefectService.services.AttachmentStorageService;
 import com.Sgic.DefectTracker.DefectService.services.AttachmentStorageServiceImpl;
 
 @RestController
@@ -32,6 +36,9 @@ public class AttachmentController {
 
 	@Autowired
 	private AttachmentStorageServiceImpl fileStorageService;
+
+	@Autowired
+	AttachmentStorageService attachmentStorageService;
 
 	@PostMapping("/uploadFile")
 	public AttachmentUploadResponse uploadFile(@RequestParam("file") MultipartFile file) {
@@ -70,4 +77,10 @@ public class AttachmentController {
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
 				.body(resource);
 	}
+
+	@GetMapping(value = "/fileId")
+	public List<AttachmentUploadResponse> getAllAttachments() {
+		return attachmentStorageService.getAttachment();
+	}
+
 }

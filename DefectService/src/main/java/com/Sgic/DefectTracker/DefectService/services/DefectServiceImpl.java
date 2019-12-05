@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
+import com.Sgic.DefectTracker.DefectService.entities.Defect;
 import com.Sgic.DefectTracker.DefectService.repositories.DefectRepository;
 @Service
 public class DefectServiceImpl implements DefectService {
@@ -14,17 +14,17 @@ public class DefectServiceImpl implements DefectService {
 	DefectRepository DefectRepository;
 
 	@Override
-	public DefectEntity createDefectEntity(DefectEntity defectEntity) {
+	public Defect createDefectEntity(Defect defectEntity) {
 		return DefectRepository.save(defectEntity);
 	}
 
 	@Override
-	public List<DefectEntity> getDefectEntity() {
+	public List<Defect> getDefectEntity() {
 		return DefectRepository.findAll();
 	}
 
 	@Override
-	public Optional<DefectEntity> getDefectEntityById(Long id) {
+	public Optional<Defect> getDefectEntityById(Long id) {
 		return DefectRepository.findById(id);
 	}
 
