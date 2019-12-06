@@ -25,19 +25,19 @@ public class Project implements Serializable {
 //	public void setModule(Set<Module> module) {
 //		this.module = module;
 //	}
-	private long project_id;
+	private long projectId;
 	private String project_name;
 	private String start_date;
 	private String end_date;
 	private String status;
 	private String project_type;
 
-	public long getProject_id() {
-		return project_id;
+	public long getProjectId() {
+		return projectId;
 	}
 
-	public void setProject_id(long project_id) {
-		this.project_id = project_id;
+	public void setProjectId(long project_id) {
+		this.projectId = project_id;
 	}
 
 	public String getProject_name() {
@@ -78,10 +78,6 @@ public class Project implements Serializable {
 
 	public void setProject_type(String project_type) {
 		this.project_type = project_type;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

@@ -3,6 +3,8 @@ package com.Sgic.DefectTracker.DefectService.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,17 +22,18 @@ import com.Sgic.DefectTracker.DefectService.entities.Defect;
 import com.Sgic.DefectTracker.DefectService.services.DefectService;
 
 @RestController
-@RequestMapping("/api/v1")
 public class DefectController {
 
 	@Autowired
 	DefectService defectService;
 
-	@PostMapping(value = "/defect")
-	public ResponseEntity<?> createDefectEntity(@RequestBody Defect defect) {
-		defectService.createDefectEntity(defect);
+	@PostMapping("project/{projectId}/defect")
+	public ResponseEntity<?> addDefectToProject(@PathVariable("projectId") Long projectId,
+			@Valid @RequestBody Defect defect) {
+		defectService.addDefectToProject(projectId, defect);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
+
 
 	@GetMapping("/defect")
 	public ResponseEntity<List<Defect>> getDefectEntity() {
@@ -52,8 +55,7 @@ public class DefectController {
 	}
 
 	@PutMapping("/updatedefect/{id}")
-	public ResponseEntity<Object> editDefectEntity(@RequestBody Defect defectEntity,
-			@PathVariable("id") Long id) {
+	public ResponseEntity<Object> editDefectEntity(@RequestBody Defect defectEntity, @PathVariable("id") Long id) {
 
 		Optional<Defect> DefectEntityOptional = defectService.getDefectEntityById(id);
 

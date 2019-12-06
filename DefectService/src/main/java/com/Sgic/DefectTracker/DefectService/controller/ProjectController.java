@@ -48,11 +48,11 @@ public class ProjectController {
 		if (!projectOptional.isPresent())
 			return ResponseEntity.notFound().build();
 
-		project.setProject_id(id);
+		project.setProjectId(id);
 
 		projectServices.saveProject(project);
 
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.ok().build();
 	}
 
 	@DeleteMapping("/project/{id}")

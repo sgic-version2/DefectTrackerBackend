@@ -18,5 +18,7 @@ public interface DefectService {
 
 		// Method for Getting One Defect Record by Id
 		public void deleteDefectEntity(Long id);
+		
+		public Defect addDefectToProject(Long projectId, Defect defect);
 
 }
