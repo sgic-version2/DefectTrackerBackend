@@ -18,14 +18,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Table(name = "defectentity")
 public class DefectEntity implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-		 * 
-		 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,18 +28,23 @@ public class DefectEntity implements Serializable {
 	private Long moduleId;
 	private Long assignto;
 	private Long assignby;
+
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "severityId")
 	private Severity severity;
+
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "priorityId")
 	private Priority priority;
+
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "statusId")
 	private DefectStatus defectStatus;
+
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
 	@JoinColumn(name = "defectTypeId")
 	private DefectType defectType;
+
 	private Long attachmentId;
 	private String description;
 
@@ -55,8 +54,9 @@ public class DefectEntity implements Serializable {
 
 	@CreationTimestamp
 	private LocalDateTime createdDate;
+
 	@UpdateTimestamp
-	private LocalDateTime udatedDate;
+	private LocalDateTime updatedDate;
 
 	public Severity getSeverity() {
 		return severity;
@@ -179,11 +179,11 @@ public class DefectEntity implements Serializable {
 	}
 
 	public LocalDateTime getUdatedDate() {
-		return udatedDate;
+		return updatedDate;
 	}
 
 	public void setUdatedDate(LocalDateTime udatedDate) {
-		this.udatedDate = udatedDate;
+		this.updatedDate = udatedDate;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,12 +22,13 @@ import com.Sgic.DefectTracker.DefectService.services.DefectService;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin
 public class DefectController {
 
 	@Autowired
 	DefectService defectService;
 
-	@PostMapping(value = "/defect")
+	@PostMapping("/defect")
 	public ResponseEntity<?> createDefectEntity(@RequestBody DefectEntity defect) {
 		defectService.createDefectEntity(defect);
 		return new ResponseEntity<Object>(HttpStatus.OK);

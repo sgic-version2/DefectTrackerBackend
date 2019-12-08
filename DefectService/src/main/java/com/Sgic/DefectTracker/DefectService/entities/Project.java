@@ -16,21 +16,13 @@ public class Project implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@OneToMany(fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
-//	private Set<Module> module;
-//	
-//	public Set<Module> getModule() {
-//		return module;
-//	}
-//	public void setModule(Set<Module> module) {
-//		this.module = module;
-//	}
 	private long project_id;
 	private String project_name;
 	private String start_date;
 	private String end_date;
 	private String status;
 	private String project_type;
+	private String duration;
 
 	public long getProject_id() {
 		return project_id;
@@ -82,6 +74,14 @@ public class Project implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
 	}
 
 }
