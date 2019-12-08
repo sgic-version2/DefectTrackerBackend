@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.Sgic.DefectTracker.DefectService.dto.ProjectCreateDTO;
-import com.Sgic.DefectTracker.DefectService.dto.ProjectQueryDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ProjectDTO;
 import com.Sgic.DefectTracker.DefectService.dto.ProjectUpdateDTO;
 
 @Service
@@ -21,13 +21,13 @@ public interface ProjectServices {
 //
 //	Optional<Project> findByID(long id);
 
-	public ProjectQueryDTO getProjectById(Long id);
+	public ProjectDTO getProjectById(Long id);
 
 	public List<Object> getAllProjects();
 
 	public Long createProject(ProjectCreateDTO projectCreateDTO);
 
-	public ProjectQueryDTO updateProject(Long id, ProjectUpdateDTO projectUpdateDTO);
+	public ProjectDTO updateProject(Long id, ProjectUpdateDTO projectUpdateDTO);
 
 	public void deleteProject(Long id);
 }

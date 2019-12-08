@@ -8,14 +8,12 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
@@ -23,26 +21,15 @@ import com.Sgic.DefectTracker.DefectService.entities.Defect;
 import com.Sgic.DefectTracker.DefectService.services.DefectService;
 
 @RestController
-<<<<<<< HEAD
-@RequestMapping("/api/v1")
-@CrossOrigin
-=======
->>>>>>> b5614f379d9b0b2bb42423c90072894096eb462d
 public class DefectController {
 
 	@Autowired
 	DefectService defectService;
 
-<<<<<<< HEAD
-	@PostMapping("/defect")
-	public ResponseEntity<?> createDefectEntity(@RequestBody DefectEntity defect) {
-		defectService.createDefectEntity(defect);
-=======
 	@PostMapping("project/{projectId}/defect")
 	public ResponseEntity<?> addDefectToProject(@PathVariable("projectId") Long projectId,
 			@Valid @RequestBody Defect defect) {
 		defectService.addDefectToProject(projectId, defect);
->>>>>>> b5614f379d9b0b2bb42423c90072894096eb462d
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 

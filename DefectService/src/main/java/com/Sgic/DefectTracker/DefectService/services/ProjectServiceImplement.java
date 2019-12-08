@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Sgic.DefectTracker.DefectService.dto.ProjectCreateDTO;
-import com.Sgic.DefectTracker.DefectService.dto.ProjectQueryDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ProjectDTO;
 import com.Sgic.DefectTracker.DefectService.dto.ProjectUpdateDTO;
 import com.Sgic.DefectTracker.DefectService.entities.Project;
 import com.Sgic.DefectTracker.DefectService.repositories.ProjectRepository;
@@ -50,10 +50,10 @@ public class ProjectServiceImplement implements ProjectServices {
 //		return projectRepository.findAll();
 //	}
 
-	public ProjectQueryDTO getProjectById(Long id) {
+	public ProjectDTO getProjectById(Long id) {
 		if (projectRepository.findById(id).isPresent()) {
 			Project fetchProject = projectRepository.findById(id).get();
-			return new ProjectQueryDTO(fetchProject.getProjectId(), fetchProject.getProject_name(),
+			return new ProjectDTO(fetchProject.getProjectId(), fetchProject.getProject_name(),
 					fetchProject.getStart_date(), fetchProject.getEnd_date(), fetchProject.getStatus(),
 					fetchProject.getProject_type());
 		} else {
@@ -64,7 +64,7 @@ public class ProjectServiceImplement implements ProjectServices {
 	public List<Object> getAllProjects() {
 		List<Object> projectList = new ArrayList<>();
 		projectRepository.findAll().forEach(project -> {
-			projectList.add(new ProjectQueryDTO(project.getProjectId(), project.getProject_name(),
+			projectList.add(new ProjectDTO(project.getProjectId(), project.getProject_name(),
 					project.getStart_date(), project.getEnd_date(), project.getStatus(), project.getProject_type()));
 		});
 
@@ -82,7 +82,7 @@ public class ProjectServiceImplement implements ProjectServices {
 		return projectRepository.save(newProject).getProjectId();
 	}
 
-	public ProjectQueryDTO updateProject(Long id, ProjectUpdateDTO projectUpdateDTO) {
+	public ProjectDTO updateProject(Long id, ProjectUpdateDTO projectUpdateDTO) {
 		if (projectRepository.findById(id).isPresent()) {
 			Project existingProject = projectRepository.findById(id).get();
 
@@ -93,7 +93,7 @@ public class ProjectServiceImplement implements ProjectServices {
 
 			Project updatedProject = projectRepository.save(existingProject);
 
-			return new ProjectQueryDTO(updatedProject.getProjectId(), updatedProject.getProject_name(),
+			return new ProjectDTO(updatedProject.getProjectId(), updatedProject.getProject_name(),
 					updatedProject.getStart_date(), updatedProject.getEnd_date(), updatedProject.getStatus(),
 					updatedProject.getProject_type());
 		} else {

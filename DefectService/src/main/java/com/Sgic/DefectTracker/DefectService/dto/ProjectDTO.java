@@ -1,6 +1,6 @@
 package com.Sgic.DefectTracker.DefectService.dto;
 
-public class ProjectQueryDTO {
+public class ProjectDTO {
 	private long projectId;
 	private String project_name;
 	private String start_date;
@@ -8,7 +8,7 @@ public class ProjectQueryDTO {
 	private String status;
 	private String project_type;
 
-	public ProjectQueryDTO(long projectId, String project_name, String start_date, String end_date, String status,
+	public ProjectDTO(long projectId, String project_name, String start_date, String end_date, String status,
 			String project_type) {
 		this.projectId = projectId;
 		this.project_name = project_name;
