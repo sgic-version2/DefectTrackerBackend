@@ -6,32 +6,47 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
+import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
+import com.Sgic.DefectTracker.DefectService.entities.Defect;
+import com.Sgic.DefectTracker.DefectService.entities.Project;
 import com.Sgic.DefectTracker.DefectService.repositories.DefectRepository;
+import com.Sgic.DefectTracker.DefectService.repositories.ProjectRepository;
+
 @Service
 public class DefectServiceImpl implements DefectService {
 	@Autowired
-	DefectRepository DefectRepository;
+	DefectRepository defectRepository;
+
+	@Autowired
+	ProjectRepository projectRepository;
 
 	@Override
-	public DefectEntity createDefectEntity(DefectEntity defectEntity) {
-		return DefectRepository.save(defectEntity);
+	public Defect createDefectEntity(Defect defectEntity) {
+		return defectRepository.save(defectEntity);
 	}
 
 	@Override
-	public List<DefectEntity> getDefectEntity() {
-		return DefectRepository.findAll();
+	public List<Defect> getDefectEntity() {
+		return defectRepository.findAll();
 	}
 
 	@Override
-	public Optional<DefectEntity> getDefectEntityById(Long id) {
-		return DefectRepository.findById(id);
+	public Optional<Defect> getDefectEntityById(Long id) {
+		return defectRepository.findById(id);
 	}
 
 	@Override
 	public void deleteDefectEntity(Long id) {
-		DefectRepository.deleteById(id);
+		defectRepository.deleteById(id);
 
+	}
+
+	@Override
+	public Defect addDefectToProject(Long projectId, Defect defect) {
+		return projectRepository.findById(projectId).map(postRequest -> {
+			defect.setProject(postRequest);
+			return defectRepository.save(defect);
+		}).orElseThrow(() -> new ResourceNotFoundException("projectId " + projectId + " not found"));
 	}
 
 }

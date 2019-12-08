@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,18 +14,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
-@Entity
-@Table(name = "defectentity")
-public class DefectEntity implements Serializable {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
+@Table(name = "defect")
+public class Defect implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long defectId;
-	private Long projectId;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "project_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore
+	private Project Project;
+	
 	private Long moduleId;
 	private Long assignto;
 	private Long assignby;
@@ -98,12 +111,20 @@ public class DefectEntity implements Serializable {
 		this.defectId = defectId;
 	}
 
-	public Long getProjectId() {
-		return projectId;
+	public Project getProject() {
+		return Project;
 	}
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
+	public void setProject(Project project) {
+		Project = project;
+	}
+
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 
 	public Long getModuleId() {

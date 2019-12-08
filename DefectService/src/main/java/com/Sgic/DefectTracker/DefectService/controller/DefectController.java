@@ -3,6 +3,8 @@ package com.Sgic.DefectTracker.DefectService.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,32 +19,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
-import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
+import com.Sgic.DefectTracker.DefectService.entities.Defect;
 import com.Sgic.DefectTracker.DefectService.services.DefectService;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/api/v1")
 @CrossOrigin
+=======
+>>>>>>> b5614f379d9b0b2bb42423c90072894096eb462d
 public class DefectController {
 
 	@Autowired
 	DefectService defectService;
 
+<<<<<<< HEAD
 	@PostMapping("/defect")
 	public ResponseEntity<?> createDefectEntity(@RequestBody DefectEntity defect) {
 		defectService.createDefectEntity(defect);
+=======
+	@PostMapping("project/{projectId}/defect")
+	public ResponseEntity<?> addDefectToProject(@PathVariable("projectId") Long projectId,
+			@Valid @RequestBody Defect defect) {
+		defectService.addDefectToProject(projectId, defect);
+>>>>>>> b5614f379d9b0b2bb42423c90072894096eb462d
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 
+
 	@GetMapping("/defect")
-	public ResponseEntity<List<DefectEntity>> getDefectEntity() {
-		return new ResponseEntity<List<DefectEntity>>(defectService.getDefectEntity(), HttpStatus.OK);
+	public ResponseEntity<List<Defect>> getDefectEntity() {
+		return new ResponseEntity<List<Defect>>(defectService.getDefectEntity(), HttpStatus.OK);
 	}
 
 	@GetMapping("/getdefectById/{id}")
-	public ResponseEntity<DefectEntity> getDefectEntityById(@PathVariable(value = "id") Long id)
+	public ResponseEntity<Defect> getDefectEntityById(@PathVariable(value = "id") Long id)
 			throws ResourceNotFoundException {
-		DefectEntity defectEntity = defectService.getDefectEntityById(id)
+		Defect defectEntity = defectService.getDefectEntityById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("DefectEntity not found for this id :: " + id));
 		return ResponseEntity.ok().body(defectEntity);
 	}
@@ -54,10 +67,9 @@ public class DefectController {
 	}
 
 	@PutMapping("/updatedefect/{id}")
-	public ResponseEntity<Object> editDefectEntity(@RequestBody DefectEntity defectEntity,
-			@PathVariable("id") Long id) {
+	public ResponseEntity<Object> editDefectEntity(@RequestBody Defect defectEntity, @PathVariable("id") Long id) {
 
-		Optional<DefectEntity> DefectEntityOptional = defectService.getDefectEntityById(id);
+		Optional<Defect> DefectEntityOptional = defectService.getDefectEntityById(id);
 
 		if (!DefectEntityOptional.isPresent())
 			return new ResponseEntity<>("DefectEntity not found for this id", HttpStatus.NOT_FOUND);
