@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.Sgic.DefectTracker.DefectService.dto.ModuleCreateDTO;
 import com.Sgic.DefectTracker.DefectService.dto.ModuleDTO;
-import com.Sgic.DefectTracker.DefectService.dto.ProjectDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ModuleUpdateDTO;
 import com.Sgic.DefectTracker.DefectService.entities.Module;
 import com.Sgic.DefectTracker.DefectService.entities.Project;
 import com.Sgic.DefectTracker.DefectService.repositories.ModuleRepository;
@@ -58,4 +58,31 @@ public class ModuleServiceImplements implements ModuleServices {
 		return null;
 	}
 
+	public ModuleDTO updateModule(Long projectId, Long moduleId, ModuleUpdateDTO moduleUpdateDTO) {
+		Optional<Project> project = projectRepository.findById(projectId);
+
+		Module existingModule = moduleRepository.findById(moduleId).get();
+
+		if (project.isPresent()) {
+			if (existingModule.getProject().getProjectId() == projectId) {
+				existingModule.setModule_name(moduleUpdateDTO.getModule_name());
+
+				Module updatedModule = moduleRepository.save(existingModule);
+
+				return new ModuleDTO(updatedModule.getModule_id(), updatedModule.getModule_name(),
+						updatedModule.getProject().getProjectId());
+			}
+		}
+
+		return null;
+
+	}
+
+	public void deleteProject(Long projetcId, Long moduleId) {
+		Optional<Project> project = projectRepository.findById(projetcId);
+
+		if (project.isPresent()) {
+			moduleRepository.deleteById(moduleId);
+		}
+	}
 }
