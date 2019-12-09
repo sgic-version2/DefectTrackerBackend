@@ -25,6 +25,7 @@ public class Module implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long module_id;
+	
 	private String module_name;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

@@ -1,8 +1,5 @@
 package com.Sgic.DefectTracker.DefectService.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,58 +8,47 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
-import com.Sgic.DefectTracker.DefectService.entities.SubModule;
+import com.Sgic.DefectTracker.DefectService.dto.SubModuleCreateDTO;
+import com.Sgic.DefectTracker.DefectService.dto.SubModuleUpdateDTO;
 import com.Sgic.DefectTracker.DefectService.services.SubModuleService;
 
 @RestController
-@RequestMapping("/api/v1")
 public class SubModuleController {
 
 	@Autowired
 	private SubModuleService subModuleService;
 
-	@PostMapping("/submodule")
-	public ResponseEntity<?> createNote(@RequestBody SubModule subModule) {
-		subModuleService.saveSubModule(subModule);
-		return new ResponseEntity<Object>(HttpStatus.OK);
+	@GetMapping("/module/{moduleId}/subModule")
+	public ResponseEntity<Object> getAllSubModulesFromModule(@PathVariable("moduleId") Long moduleId) {
+		return new ResponseEntity<Object>(subModuleService.getAllModules(moduleId), HttpStatus.OK);
 	}
 
-	@GetMapping("/submodule")
-	public List<SubModule> getSubModule() {
-		return subModuleService.getAllSubModule();
+	@GetMapping("/module/{moduleId}/subModule/{subModuleId}")
+	public ResponseEntity<Object> getSubModuleById(@PathVariable("moduleId") Long moduleId,
+			@PathVariable("subModuleId") Long submoduleId) {
+		return new ResponseEntity<Object>(subModuleService.getSubModulesById(moduleId, submoduleId), HttpStatus.OK);
+	}
+
+	@PostMapping("/moduleId/{moduleId}/submodule")
+	public ResponseEntity<Object> createSubModuleToModule(@PathVariable("moduleId") Long moduleId,
+			SubModuleCreateDTO submoduleCretaeDTO) {
+		return new ResponseEntity<Object>(subModuleService.createSubModule(moduleId, submoduleCretaeDTO),
+				HttpStatus.OK);
+	}
+
+	@PutMapping("/module/{moduleId}/subModule/{subModuleId}")
+	public ResponseEntity<Object> updateSubModule(@PathVariable("moduleId") Long moduleId,
+			@PathVariable("subModuleId") Long subModuleId, SubModuleUpdateDTO subModuleUpdateDTO) {
+		return new ResponseEntity<Object>(subModuleService.updateSubModule(moduleId, subModuleId, subModuleUpdateDTO),
+				HttpStatus.OK);
 
 	}
 
-	@GetMapping("/submodule/{id}")
-	public ResponseEntity<SubModule> getsubModuleById(@PathVariable(value = "id") Long id)
-			throws ResourceNotFoundException {
-		SubModule subModule = subModuleService.findByID(id)
-				.orElseThrow(() -> new ResourceNotFoundException("SubModule not found for this id :: " + id));
-		return ResponseEntity.ok().body(subModule);
-	}
-
-	@PutMapping("/submodule/{id}")
-	public ResponseEntity<Object> updateSubModule(@RequestBody SubModule subModule, @PathVariable long id) {
-
-		Optional<SubModule> subModuleOptional = subModuleService.findByID(id);
-
-		if (!subModuleOptional.isPresent())
-			return ResponseEntity.notFound().build();
-
-		subModule.setSubmodule_id(id);
-
-		subModuleService.saveSubModule(subModule);
-
-		return ResponseEntity.noContent().build();
-	}
-
-	@DeleteMapping("/submodule/{id}")
-	public void deleteSubModule(@PathVariable long id) {
-		subModuleService.deleteSubModule(id);
+	@DeleteMapping("/module/{moduleId}/subModule/{subModuleId}")
+	public void deleteSubModules(@PathVariable("moduleId") Long moduleId,
+			@PathVariable("subModuleId") Long subModuleId) {
+		subModuleService.deleteSubModule(moduleId, subModuleId);
 	}
 }

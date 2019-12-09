@@ -18,51 +18,11 @@ import com.Sgic.DefectTracker.DefectService.dto.ModuleUpdateDTO;
 import com.Sgic.DefectTracker.DefectService.services.ModuleServices;
 
 @RestController
-//@RequestMapping("/api/v1")
 public class ModuleController {
 
 	@Autowired
 	private ModuleServices moduleServices;
 
-//	@PostMapping("/module")
-//	public ResponseEntity<?> createNote(@RequestBody Module module) {
-//		moduleServices.saveModule(module);
-//		return new ResponseEntity<Object>(HttpStatus.OK);
-//	}
-//
-//	@GetMapping("/module")
-//	public List<Module> getModule() {
-//		return moduleServices.getAllModule();
-//
-//	}
-//
-//	@GetMapping("/module/{id}")
-//	public ResponseEntity<Module> getModuleById(@PathVariable(value = "id") Long id)
-//			throws ResourceNotFoundException {
-//		Module module = moduleServices.findByID(id)
-//				.orElseThrow(() -> new ResourceNotFoundException("Module not found for this id :: " + id));
-//		return ResponseEntity.ok().body(module);
-//	}
-//
-//	@PutMapping("/module/{id}")
-//	public ResponseEntity<Object> updateModule(@RequestBody Module module, @PathVariable long id) {
-//
-//		Optional<Module> moduleOptional = moduleServices.findByID(id);
-//
-//		if (!moduleOptional.isPresent())
-//			return ResponseEntity.notFound().build();
-//
-//		module.setModule_id(id);
-//
-//		moduleServices.saveModule(module);
-//
-//		return ResponseEntity.noContent().build();
-//	}
-//
-//	@DeleteMapping("/module/{id}")
-//	public void deleteModule(@PathVariable long id) {
-//		moduleServices.deleteModule(id);
-//	}
 	@GetMapping("project/{projectId}/module/{moduleId}")
 	public ResponseEntity<Object> getAllModulesById(@PathVariable("projectId") Long projectId,
 			@PathVariable("moduleId") Long moduleId) {

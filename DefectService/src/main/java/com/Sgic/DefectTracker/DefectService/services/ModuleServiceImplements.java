@@ -27,7 +27,7 @@ public class ModuleServiceImplements implements ModuleServices {
 	public List<Object> getModulesById(Long projectId, Long moduleId) {
 		List<Object> moduleList = new ArrayList<>();
 		moduleRepository.findAll().forEach(module -> {
-			if ((module.getModule_id() == moduleId) && module.getProject().getProjectId() == projectId) {
+			if ((module.getModule_id() == moduleId) && (module.getProject().getProjectId() == projectId)) {
 				moduleList.add(new ModuleDTO(module.getModule_id(), module.getModule_name(),
 						module.getProject().getProjectId()));
 			}
