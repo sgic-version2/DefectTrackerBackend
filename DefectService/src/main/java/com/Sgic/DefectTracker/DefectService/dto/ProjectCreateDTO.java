@@ -1,36 +1,12 @@
-package com.Sgic.DefectTracker.DefectService.entities;
+package com.Sgic.DefectTracker.DefectService.dto;
 
-import java.io.Serializable;
+public class ProjectCreateDTO {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "project")
-public class Project implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long projectId;
 	private String project_name;
 	private String start_date;
 	private String end_date;
 	private String status;
 	private String project_type;
-	private String duration;
-
-	public long getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(long project_id) {
-		this.projectId = project_id;
-	}
 
 	public String getProject_name() {
 		return project_name;
@@ -71,5 +47,4 @@ public class Project implements Serializable {
 	public void setProject_type(String project_type) {
 		this.project_type = project_type;
 	}
-
 }

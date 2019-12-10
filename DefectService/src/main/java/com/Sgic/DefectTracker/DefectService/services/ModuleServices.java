@@ -1,18 +1,22 @@
 package com.Sgic.DefectTracker.DefectService.services;
 
 import java.util.List;
-import java.util.Optional;
 
+import com.Sgic.DefectTracker.DefectService.dto.ModuleCreateDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ModuleDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ModuleUpdateDTO;
 import com.Sgic.DefectTracker.DefectService.entities.Module;
 
 public interface ModuleServices {
-	Module saveModule(Module module);
-
-	Module updateModule(Module module, long id);
-
-	void deleteModule(long id);
-
-	List<Module> getAllModule();
-
-	Optional<Module> findByID(long id);
+	
+	public List<Object> getModulesById(Long projectId, Long moduleId);
+	
+	public List<Object> getAllProjects(Long projectId);
+	
+	public Module createModule(Long projectId, ModuleCreateDTO moduleCreateDTO);
+	
+	public ModuleDTO updateModule(Long projectId, Long moduleId, ModuleUpdateDTO moduleUpdateDTO);
+	
+	public void deleteProject(Long projectId, Long moduleId);
+	
 }

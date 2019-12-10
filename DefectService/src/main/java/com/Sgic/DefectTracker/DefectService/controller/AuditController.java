@@ -1,3 +1,4 @@
+
 package com.Sgic.DefectTracker.DefectService.controller;
 
 import java.util.List;
@@ -24,52 +25,44 @@ import com.Sgic.DefectTracker.DefectService.services.AuditService;
 public class AuditController {
 	@Autowired
 	AuditService auditService;
-	
-	
+
 	@PostMapping(value = "/audit")
 	public ResponseEntity<?> createAudit(@RequestBody Audit audit) {
 		auditService.createAudit(audit);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
-	
-	
+
 	@GetMapping("/audit")
-	  public List<Audit> getAudit() {
+	public List<Audit> getAudit() {
 		return auditService.getAudit();
 
 	}
-	
 
 	@DeleteMapping("/audit/{id}")
-    public ResponseEntity<?> deleteAudit(@PathVariable Long id) { 
+	public ResponseEntity<?> deleteAudit(@PathVariable Long id) {
 		auditService.deleteAudit(id);
 		return ResponseEntity.ok().build();
-    }
-	
-	
-	@GetMapping("/getauditById/{id}")
-	public Optional<Audit> getAuditById(@PathVariable(name = "id") Long id){
-	
-		
-		 return auditService.getAuditById(id);
 	}
 
-	
-	@PutMapping("/updateaudit/{id}")
-	public ResponseEntity<Object> editAudit(@RequestBody Audit audit, @PathVariable ("id") long id) {
+	@GetMapping("/getauditById/{id}")
+	public Optional<Audit> getAuditById(@PathVariable(name = "id") Long id) {
 
-		Optional<Audit>AuditOptional = auditService.getAuditById(id);
+		return auditService.getAuditById(id);
+	}
+
+	@PutMapping("/updateaudit/{id}")
+	public ResponseEntity<Object> editAudit(@RequestBody Audit audit, @PathVariable("id") long id) {
+
+		Optional<Audit> AuditOptional = auditService.getAuditById(id);
 
 		if (!AuditOptional.isPresent())
 			return ResponseEntity.notFound().build();
 
 		audit.setAuditId(id);
 
-		
 		auditService.createAudit(audit);
 
 		return ResponseEntity.noContent().build();
 	}
 
 }
-

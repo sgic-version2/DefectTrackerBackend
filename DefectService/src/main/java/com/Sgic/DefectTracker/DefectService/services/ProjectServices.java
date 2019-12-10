@@ -1,26 +1,33 @@
 package com.Sgic.DefectTracker.DefectService.services;
 
-
-
 import java.util.List;
-import java.util.Optional;
 
-import com.Sgic.DefectTracker.DefectService.entities.Module;
-import com.Sgic.DefectTracker.DefectService.entities.Project;
+import org.springframework.stereotype.Service;
 
+import com.Sgic.DefectTracker.DefectService.dto.ProjectCreateDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ProjectDTO;
+import com.Sgic.DefectTracker.DefectService.dto.ProjectUpdateDTO;
+
+@Service
 public interface ProjectServices {
 
-	Project saveProject(Project project);
+//	Project saveProject(Project project);
+//
+//	Project updateProject(Project project, long id);
+//
+//	void deleteProject(long id);
+//
+//	List<Project> getAllProject();
+//
+//	Optional<Project> findByID(long id);
 
-	Project updateProject(Project project, long id);
+	public ProjectDTO getProjectById(Long id);
 
-	void deleteProject(long id);
+	public List<Object> getAllProjects();
 
-	List<Project> getAllProject();
+	public Long createProject(ProjectCreateDTO projectCreateDTO);
 
-	Optional<Project> findByID(long id);
+	public ProjectDTO updateProject(Long id, ProjectUpdateDTO projectUpdateDTO);
 
-	
-	
-
+	public void deleteProject(Long id);
 }

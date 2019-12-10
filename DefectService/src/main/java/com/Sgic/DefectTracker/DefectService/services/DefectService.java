@@ -3,20 +3,26 @@ package com.Sgic.DefectTracker.DefectService.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.Sgic.DefectTracker.DefectService.entities.DefectEntity;
-
+import com.Sgic.DefectTracker.DefectService.dto.DefectCreateDTO;
+import com.Sgic.DefectTracker.DefectService.dto.DefectDTO;
+import com.Sgic.DefectTracker.DefectService.dto.DefectUpdateDTO;
+import com.Sgic.DefectTracker.DefectService.entities.Defect;
 
 public interface DefectService {
-	// Method for Save Defect Entity
-		public DefectEntity createDefectEntity(DefectEntity defectEntity);
+	// Method for Getting One Defect Record by ID
+	public Optional<Defect> getDefectEntityById(Long id);
 
-		// Method for Defect List
-		public List<DefectEntity> getDefectEntity();
+	public Defect createDefect(Long projectId, Long moduleId, Long subModuleId, DefectCreateDTO defectCreateDTO);
 
-		// Method for Getting One Defect Record by ID
-		public Optional<DefectEntity> getDefectEntityById(Long id);
+	public List<Object> getAllDefects(Long projectId);
 
-		// Method for Getting One Defect Record by Id
-		public void deleteDefectEntity(Long id);
+	public List<Object> getDefectsById(Long projectId, Long moduleId, Long subModuleId, Long defectId);
+
+	public List<Object> getDefectFromSubModule(Long projectId, Long moduleId, Long subModuleId);
+
+	public DefectDTO updateDefect(Long projectId, Long moduleId, Long subModuleId, Long defectId,
+			DefectUpdateDTO defectUpdateDTO);
+
+	public void deleteDefect(Long projectId, Long moduleId, Long subModuleId, Long defectId);
 
 }
