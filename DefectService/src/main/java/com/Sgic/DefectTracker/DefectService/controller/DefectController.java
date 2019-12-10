@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Sgic.DefectTracker.DefectService.Exception.ResourceNotFoundException;
 import com.Sgic.DefectTracker.DefectService.dto.DefectCreateDTO;
 import com.Sgic.DefectTracker.DefectService.dto.DefectUpdateDTO;
-import com.Sgic.DefectTracker.DefectService.entities.Defect;
 import com.Sgic.DefectTracker.DefectService.services.DefectService;
 
 @RestController
@@ -22,18 +20,12 @@ public class DefectController {
 	@Autowired
 	DefectService defectService;
 
-	@GetMapping("/getdefectById/{id}")
-	public ResponseEntity<Defect> getDefectEntityById(@PathVariable(value = "id") Long id)
-			throws ResourceNotFoundException {
-		Defect defectEntity = defectService.getDefectEntityById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("DefectEntity not found for this id :: " + id));
-		return ResponseEntity.ok().body(defectEntity);
-	}
-
-	@PostMapping("/project/{projectId}/defect")
-	public ResponseEntity<Object> createDefectToProject(@PathVariable("projectId") Long projectId, Long moduleId,
-			Long severityId, Long priorityId, Long defectStatusId, Long defectTypeId, DefectCreateDTO defectCreateDTO) {
-		return new ResponseEntity<Object>(defectService.createDefect(projectId, defectCreateDTO), HttpStatus.OK);
+	@PostMapping("/project/{projectId}/module/{moduleId}/subModule/{subModuleId}")
+	public ResponseEntity<Object> createDefectToProject(@PathVariable("projectId") Long projectId,
+			@PathVariable("moduleId") Long moduleId, @PathVariable("subModuleId") Long subModuleId,
+			DefectCreateDTO defectCreateDTO) {
+		return new ResponseEntity<Object>(defectService.createDefect(projectId, moduleId, subModuleId, defectCreateDTO),
+				HttpStatus.OK);
 	}
 
 	@GetMapping("/project/{projectId}/defect")
@@ -41,21 +33,32 @@ public class DefectController {
 		return new ResponseEntity<Object>(defectService.getAllDefects(projectId), HttpStatus.OK);
 	}
 
-	@GetMapping("/project/{projectId}/defect/{defectId}")
-	public ResponseEntity<Object> getDefectsById(@PathVariable("projectId") Long projectId,
-			@PathVariable("defectId") Long defectId) {
-		return new ResponseEntity<Object>(defectService.getDefectsById(projectId, defectId), HttpStatus.OK);
-	}
-
-	@PutMapping("/projectId/{projectId}/defect/{defectId}")
-	public ResponseEntity<Object> updateDefect(@PathVariable("projectId") Long projectId,
-			@PathVariable("defectId") Long defectId, DefectUpdateDTO defectUpdateDTO) {
-		return new ResponseEntity<Object>(defectService.updateDefect(projectId, defectId, defectUpdateDTO),
+	@GetMapping("/project/{projectId}/module/{moduleId}/subModule/{subModuleId}")
+	public ResponseEntity<Object> getAllDefectsFromSubModule(@PathVariable("projectId") Long projectId,
+			@PathVariable("moduleId") Long moduleId, @PathVariable("subModuleId") Long subModuleId) {
+		return new ResponseEntity<Object>(defectService.getDefectFromSubModule(projectId, moduleId, subModuleId),
 				HttpStatus.OK);
 	}
 
-	@DeleteMapping("/projectId/{projectId}/defect/{defectId}")
-	public void deleteDefect(@PathVariable("projectId") Long projectId, @PathVariable("defectId") Long defectId) {
-		defectService.deleteDefect(projectId, defectId);
+	@GetMapping("/project/{projectId}/module/{moduleId}/subModule/{subModuleId}/defect/{defectId}")
+	public ResponseEntity<Object> getDefectsById(@PathVariable("projectId") Long projectId,
+			@PathVariable("moduleId") Long moduleId, @PathVariable("subModuleId") Long subModuleId,
+			@PathVariable("defectId") Long defectId) {
+		return new ResponseEntity<Object>(defectService.getDefectsById(projectId, moduleId, subModuleId, defectId),
+				HttpStatus.OK);
+	}
+
+	@PutMapping("/project/{projectId}/module/{moduleId}/subModule/{subModuleId}/defect/{defectId}")
+	public ResponseEntity<Object> updateDefect(@PathVariable("projectId") Long projectId,
+			@PathVariable("moduleId") Long moduleId, @PathVariable("subModuleId") Long subModuleId,
+			@PathVariable("defectId") Long defectId, DefectUpdateDTO defectUpdateDTO) {
+		return new ResponseEntity<Object>(
+				defectService.updateDefect(projectId, moduleId, subModuleId, defectId, defectUpdateDTO), HttpStatus.OK);
+	}
+
+	@DeleteMapping("/project/{projectId}/module/{moduleId}/subModule/{subModuleId}/defect/{defectId}")
+	public void deleteDefect(@PathVariable("projectId") Long projectId, @PathVariable("moduleId") Long moduleId,
+			@PathVariable("subModuleId") Long subModuleId, @PathVariable("defectId") Long defectId) {
+		defectService.deleteDefect(projectId, moduleId, subModuleId, defectId);
 	}
 }

@@ -12,14 +12,17 @@ public interface DefectService {
 	// Method for Getting One Defect Record by ID
 	public Optional<Defect> getDefectEntityById(Long id);
 
-	public Defect createDefect(Long projectId, DefectCreateDTO defectCreateDTO);
+	public Defect createDefect(Long projectId, Long moduleId, Long subModuleId, DefectCreateDTO defectCreateDTO);
 
 	public List<Object> getAllDefects(Long projectId);
-	
-	public List<Object> getDefectsById(Long projectId, Long defectId);
-	
-	public DefectDTO updateDefect(Long projectId, Long defectId, DefectUpdateDTO defectUpdateDTO);
-	
-	public void deleteDefect(Long projectId, Long defectId);
+
+	public List<Object> getDefectsById(Long projectId, Long moduleId, Long subModuleId, Long defectId);
+
+	public List<Object> getDefectFromSubModule(Long projectId, Long moduleId, Long subModuleId);
+
+	public DefectDTO updateDefect(Long projectId, Long moduleId, Long subModuleId, Long defectId,
+			DefectUpdateDTO defectUpdateDTO);
+
+	public void deleteDefect(Long projectId, Long moduleId, Long subModuleId, Long defectId);
 
 }

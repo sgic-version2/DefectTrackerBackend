@@ -18,4 +18,5 @@ public interface ModuleServices {
 	public ModuleDTO updateModule(Long projectId, Long moduleId, ModuleUpdateDTO moduleUpdateDTO);
 	
 	public void deleteProject(Long projectId, Long moduleId);
+	
 }

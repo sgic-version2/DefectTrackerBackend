@@ -3,6 +3,7 @@ package com.Sgic.DefectTracker.DefectService.entities;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -39,30 +40,36 @@ public class Defect implements Serializable {
 	@JsonIgnore
 	private Project Project;
 
-//	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-//	@JoinColumn(name = "module_id", nullable = false)
-//	@OnDelete(action = OnDeleteAction.CASCADE)
-//	@JsonIgnore
-//	private Module moduleId;
-//	
-//	private Long assignto;
-//	private Long assignby;
-//
-//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
-//	@JoinColumn(name = "severityId")
-//	private Severity severity;
-//
-//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
-//	@JoinColumn(name = "priorityId")
-//	private Priority priority;
-//
-//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
-//	@JoinColumn(name = "statusId")
-//	private DefectStatus defectStatus;
-//
-//	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
-//	@JoinColumn(name = "defectTypeId")
-//	private DefectType defectType;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "module_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore
+	private Module moduleId;
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "submodule_id", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore
+	private SubModule subModule;
+
+	private Long assignto;
+	private Long assignby;
+
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name = "severityId")
+	private Severity severity;
+
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name = "priorityId")
+	private Priority priority;
+
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name = "statusId")
+	private DefectStatus defectStatus;
+
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REMOVE })
+	@JoinColumn(name = "defectTypeId")
+	private DefectType defectType;
 
 	private String description;
 
@@ -99,61 +106,61 @@ public class Defect implements Serializable {
 		Project = project;
 	}
 
-//	public Module getModuleId() {
-//		return moduleId;
-//	}
-//
-//	public void setModuleId(Module moduleId) {
-//		this.moduleId = moduleId;
-//	}
-//
-//	public Long getAssignto() {
-//		return assignto;
-//	}
-//
-//	public void setAssignto(Long assignto) {
-//		this.assignto = assignto;
-//	}
-//
-//	public Long getAssignby() {
-//		return assignby;
-//	}
-//
-//	public void setAssignby(Long assignby) {
-//		this.assignby = assignby;
-//	}
-//
-//	public Severity getSeverity() {
-//		return severity;
-//	}
-//
-//	public void setSeverity(Severity severity) {
-//		this.severity = severity;
-//	}
-//
-//	public Priority getPriority() {
-//		return priority;
-//	}
-//
-//	public void setPriority(Priority priority) {
-//		this.priority = priority;
-//	}
-//
-//	public DefectStatus getDefectStatus() {
-//		return defectStatus;
-//	}
-//
-//	public void setDefectStatus(DefectStatus defectStatus) {
-//		this.defectStatus = defectStatus;
-//	}
-//
-//	public DefectType getDefectType() {
-//		return defectType;
-//	}
-//
-//	public void setDefectType(DefectType defectType) {
-//		this.defectType = defectType;
-//	}
+	public Module getModuleId() {
+		return moduleId;
+	}
+
+	public void setModuleId(Module moduleId) {
+		this.moduleId = moduleId;
+	}
+
+	public Long getAssignto() {
+		return assignto;
+	}
+
+	public void setAssignto(Long assignto) {
+		this.assignto = assignto;
+	}
+
+	public Long getAssignby() {
+		return assignby;
+	}
+
+	public void setAssignby(Long assignby) {
+		this.assignby = assignby;
+	}
+
+	public Severity getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(Severity severity) {
+		this.severity = severity;
+	}
+
+	public Priority getPriority() {
+		return priority;
+	}
+
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+
+	public DefectStatus getDefectStatus() {
+		return defectStatus;
+	}
+
+	public void setDefectStatus(DefectStatus defectStatus) {
+		this.defectStatus = defectStatus;
+	}
+
+	public DefectType getDefectType() {
+		return defectType;
+	}
+
+	public void setDefectType(DefectType defectType) {
+		this.defectType = defectType;
+	}
 
 	public String getDescription() {
 		return description;
@@ -193,6 +200,14 @@ public class Defect implements Serializable {
 
 	public void setUpdatedDate(LocalDateTime updatedDate) {
 		this.updatedDate = updatedDate;
+	}
+
+	public SubModule getSubModule() {
+		return subModule;
+	}
+
+	public void setSubModule(SubModule subModule) {
+		this.subModule = subModule;
 	}
 
 }

@@ -6,6 +6,7 @@ import com.Sgic.DefectTracker.DefectService.entities.Module;
 import com.Sgic.DefectTracker.DefectService.entities.Priority;
 import com.Sgic.DefectTracker.DefectService.entities.Project;
 import com.Sgic.DefectTracker.DefectService.entities.Severity;
+import com.Sgic.DefectTracker.DefectService.entities.SubModule;
 
 public class DefectCreateDTO {
 
@@ -19,6 +20,8 @@ public class DefectCreateDTO {
 	private long assignby;
 
 	private Module moduleId;
+
+	private SubModule subModuleId;
 
 	private Severity severityId;
 
@@ -122,6 +125,10 @@ public class DefectCreateDTO {
 
 	public void setDefectTypeId(DefectType defectTypeId) {
 		this.defectTypeId = defectTypeId;
+	}
+
+	public SubModule getSubModuleId() {
+		return subModuleId;
 	}
 
 }

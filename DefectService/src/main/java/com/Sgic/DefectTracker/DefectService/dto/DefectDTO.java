@@ -10,19 +10,21 @@ public class DefectDTO {
 
 	private long ProjectId;
 
-//	private long moduleId;
-//
-//	private long assignto;
-//
-//	private long assignby;
-//
-//	private long severityId;
-//
-//	private long priorityId;
-//
-//	private long defectStatusId;
-//
-//	private long defectTypeId;
+	private long moduleId;
+
+	private long subModuleId;
+
+	private long assignto;
+
+	private long assignby;
+
+	private long severityId;
+
+	private long priorityId;
+
+	private long defectStatusId;
+
+	private long defectTypeId;
 
 	private String description;
 
@@ -34,20 +36,21 @@ public class DefectDTO {
 
 	private LocalDateTime updatedDate;
 
-	public DefectDTO(long defectId, String defectName, long ProjectId, long moduleId, long assignto, long assignby,
-			long severityId, long priorityId, long defectStatusId, long defectTypeId, String description,
+	public DefectDTO(long defectId, String defectName, long ProjectId, long moduleId, long subModuleId, long assignto,
+			long assignby, long severityId, long priorityId, long defectStatusId, long defectTypeId, String description,
 			String foundIn, String fixedIn, LocalDateTime createdDate, LocalDateTime updatedDate) {
 
 		this.defectId = defectId;
 		this.defectName = defectName;
 		this.ProjectId = ProjectId;
-//		this.moduleId = moduleId;
-//		this.assignto = assignto;
-//		this.assignby = assignby;
-//		this.severityId = severityId;
-//		this.priorityId = priorityId;
-//		this.defectStatusId = defectStatusId;
-//		this.defectTypeId = defectTypeId;
+		this.moduleId = moduleId;
+		this.subModuleId = subModuleId;
+		this.assignto = assignto;
+		this.assignby = assignby;
+		this.severityId = severityId;
+		this.priorityId = priorityId;
+		this.defectStatusId = defectStatusId;
+		this.defectTypeId = defectTypeId;
 		this.description = description;
 		this.foundIn = foundIn;
 		this.fixedIn = fixedIn;
@@ -60,6 +63,7 @@ public class DefectDTO {
 
 		this.defectId = defectId;
 		this.defectName = defectName;
+//		this.moduleId = moduleId;
 		this.ProjectId = ProjectId;
 		this.description = description;
 		this.foundIn = foundIn;
@@ -80,33 +84,33 @@ public class DefectDTO {
 		return ProjectId;
 	}
 
-//	public long getModuleId() {
-//		return moduleId;
-//	}
-//
-//	public long getAssignto() {
-//		return assignto;
-//	}
-//
-//	public long getAssignby() {
-//		return assignby;
-//	}
-//
-//	public long getSeverityId() {
-//		return severityId;
-//	}
-//
-//	public long getPriorityId() {
-//		return priorityId;
-//	}
-//
-//	public long getDefectStatusId() {
-//		return defectStatusId;
-//	}
-//
-//	public long getDefectTypeId() {
-//		return defectTypeId;
-//	}
+	public long getModuleId() {
+		return moduleId;
+	}
+
+	public long getAssignto() {
+		return assignto;
+	}
+
+	public long getAssignby() {
+		return assignby;
+	}
+
+	public long getSeverityId() {
+		return severityId;
+	}
+
+	public long getPriorityId() {
+		return priorityId;
+	}
+
+	public long getDefectStatusId() {
+		return defectStatusId;
+	}
+
+	public long getDefectTypeId() {
+		return defectTypeId;
+	}
 
 	public String getDescription() {
 		return description;
@@ -126,6 +130,10 @@ public class DefectDTO {
 
 	public LocalDateTime getUpdatedDate() {
 		return updatedDate;
+	}
+
+	public long getSubModuleId() {
+		return subModuleId;
 	}
 
 }
