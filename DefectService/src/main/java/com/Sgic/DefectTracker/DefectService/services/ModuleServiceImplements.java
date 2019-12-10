@@ -78,8 +78,8 @@ public class ModuleServiceImplements implements ModuleServices {
 
 	}
 
-	public void deleteProject(Long projetcId, Long moduleId) {
-		Optional<Project> project = projectRepository.findById(projetcId);
+	public void deleteProject(Long projectId, Long moduleId) {
+		Optional<Project> project = projectRepository.findById(projectId);
 
 		if (project.isPresent()) {
 			moduleRepository.deleteById(moduleId);
